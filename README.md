@@ -1,5 +1,11 @@
 # Pintos
 
+## Collaborators
+- [Armia Joseph](https://github.com/Armaritto)
+- [Amin Mohammed](https://github.com/WorldisAmen)
+- [Andrew Safwat](https://github.com/AndrewSafwat1)
+- [Rafy Hany](https://github.com/RafyHany)
+
 ## About
 
 PintOS is an open source instructional operating system kernel developed by Stanford University. PintOS provides complete documentation & modular projects to introduce students to the major concepts of operating systems development. The components of PintOS project is illustrated in the following figure.
