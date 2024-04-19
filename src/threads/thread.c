@@ -37,6 +37,8 @@ static struct thread *initial_thread;
 /* Lock used by allocate_tid(). */
 static struct lock tid_lock;
 
+static struct lock waits_for;
+
 /* Stack frame for kernel_thread(). */
 struct kernel_thread_frame 
   {
@@ -69,6 +71,7 @@ static bool is_thread (struct thread *) UNUSED;
 static void *alloc_frame (struct thread *, size_t size);
 static void schedule (void);
 void thread_schedule_tail (struct thread *prev);
+int threads_get_max_priority(void);
 static tid_t allocate_tid (void);
 
 /* Initializes the threading system by transforming the code
@@ -84,12 +87,18 @@ static tid_t allocate_tid (void);
 
    It is not safe to call thread_current() until this function
    finishes. */
+
+  
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
+
 void
 thread_init (void) 
 {
   ASSERT (intr_get_level () == INTR_OFF);
 
   lock_init (&tid_lock);
+  lock_init (&waits_for);
   list_init (&ready_list);
   list_init (&all_list);
 
@@ -98,6 +107,7 @@ thread_init (void)
   init_thread (initial_thread, "main", PRI_DEFAULT);
   initial_thread->status = THREAD_RUNNING;
   initial_thread->tid = allocate_tid ();
+  initial_thread->effective_priority = PRI_MIN;
 }
 
 /* Starts preemptive thread scheduling by enabling interrupts.
@@ -342,8 +352,26 @@ thread_set_priority (int new_priority)
 int
 thread_get_priority (void) 
 {
-  return thread_current ()->priority;
+  return MAX(thread_current()->priority, thread_current()->effective_priority);
 }
+
+/* gdeeda -> */
+/// Returns the highest priority of all threads in the ready list
+/// or the current thread's priority if the ready list is empty
+/// or the current thread's effective priority if the ready list is empty
+/// and the current thread's effective priority is higher than the current thread's priority
+int 
+threads_get_max_priority(void)
+{
+  struct list_elem *e;
+  int max_priority = PRI_MIN;
+  for (e = list_begin (&ready_list); e != list_end (&ready_list);e = list_next (e)){
+    max_priority = MAX(max_priority, MAX(list_entry(e, struct thread, elem)->priority,
+                                          list_entry(e, struct thread, elem)->effective_priority));
+  }
+  return max_priority;
+}
+
 
 /* Sets the current thread's nice value to NICE. */
 void
