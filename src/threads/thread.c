@@ -76,7 +76,7 @@ static tid_t allocate_tid (void);
 
 /* Initializes the threading system by transforming the code
    that's currently running into a thread.  This can't work in
-   general and it is possible in this case only because loader.S
+   general, and it is possible in this case only because loader.S
    was careful to put the bottom of the stack at a page boundary.
 
    Also initializes the run queue and the tid lock.
@@ -92,13 +92,27 @@ static tid_t allocate_tid (void);
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
+// Define a comparison function
+bool
+less (const struct list_elem *a, const struct list_elem *b, void *aux)
+{
+    struct thread *a_elem = list_entry (a, struct thread, elem);
+    struct thread *b_elem = list_entry (b, struct thread, elem);
+
+    printf("hello from line 102 in thread.c -> a_elem->priority: %d, a_elem->effective_priority: %d\n", a_elem->priority, a_elem->effective_priority);
+//    printf("hello from line 103 in thread.c -> a_elem->priority: %d, a_elem->effective_priority: %d\n", b_elem->priority, b_elem->effective_priority);
+    return a_elem->priority > b_elem->priority;
+    //return MAX(a_elem->priority, a_elem->effective_priority) > MAX(b_elem->priority, b_elem->effective_priority);
+}
+
+
 void
 thread_init (void) 
 {
   ASSERT (intr_get_level () == INTR_OFF);
 
   lock_init (&tid_lock);
-  lock_init (&waits_for);
+  //lock_init (&waits_for);
   list_init (&ready_list);
   list_init (&all_list);
 
@@ -107,7 +121,7 @@ thread_init (void)
   init_thread (initial_thread, "main", PRI_DEFAULT);
   initial_thread->status = THREAD_RUNNING;
   initial_thread->tid = allocate_tid ();
-  initial_thread->effective_priority = PRI_MIN;
+//  initial_thread->effective_priority = PRI_MIN;
 }
 
 /* Starts preemptive thread scheduling by enabling interrupts.
@@ -190,6 +204,7 @@ thread_create (const char *name, int priority,
     return TID_ERROR;
 
   /* Initialize thread. */
+//  t->effective_priority=PRI_MIN;
   init_thread (t, name, priority);
   tid = t->tid = allocate_tid ();
 
@@ -210,7 +225,7 @@ thread_create (const char *name, int priority,
 
   /* Add to run queue. */
   thread_unblock (t);
-
+    ///TODO
   return tid;
 }
 
@@ -242,12 +257,13 @@ void
 thread_unblock (struct thread *t) 
 {
   enum intr_level old_level;
-
+    printf("hello from line 259 in thread.c-> t->priority: %d, t->effective_priority: %d\n", t->priority, t->effective_priority);
   ASSERT (is_thread (t));
 
   old_level = intr_disable ();
   ASSERT (t->status == THREAD_BLOCKED);
-  list_push_back (&ready_list, &t->elem);
+//  list_push_back (&ready_list, &t->elem);
+  list_insert_ordered(&ready_list, &t->elem, less, NULL);
   t->status = THREAD_READY;
   intr_set_level (old_level);
 }
@@ -266,7 +282,9 @@ struct thread *
 thread_current (void) 
 {
   struct thread *t = running_thread ();
-  
+/*
+printf("elDOD , priority of t is %d, effective priortity of t is %d\n", t->priority);
+*/
   /* Make sure T is really a thread.
      If either of these assertions fire, then your thread may
      have overflowed its stack.  Each thread has less than 4 kB
@@ -318,7 +336,8 @@ thread_yield (void)
 
   old_level = intr_disable ();
   if (cur != idle_thread) 
-    list_push_back (&ready_list, &cur->elem);
+//    list_push_back (&ready_list, &cur->elem);
+  list_insert_ordered(&ready_list, &cur->elem, less, NULL);
   cur->status = THREAD_READY;
   schedule ();
   intr_set_level (old_level);
@@ -345,6 +364,7 @@ thread_foreach (thread_action_func *func, void *aux)
 void
 thread_set_priority (int new_priority) 
 {
+    ///TODO
   thread_current ()->priority = new_priority;
 }
 
@@ -352,7 +372,8 @@ thread_set_priority (int new_priority)
 int
 thread_get_priority (void) 
 {
-  return MAX(thread_current()->priority, thread_current()->effective_priority);
+    return thread_current()->priority;
+  //return MAX(thread_current()->priority, thread_current()->effective_priority);
 }
 
 /* gdeeda -> */
@@ -490,10 +511,13 @@ init_thread (struct thread *t, const char *name, int priority)
   strlcpy (t->name, name, sizeof t->name);
   t->stack = (uint8_t *) t + PGSIZE;
   t->priority = priority;
-  t->magic = THREAD_MAGIC;
+  t->effective_priority = t->priority;
+    printf("hello from line 510 in thread.c -> t->priority: %d, t->effective_priority: %d\n", t->priority, t->effective_priority);
+    t->magic = THREAD_MAGIC;
 
   old_level = intr_disable ();
   list_push_back (&all_list, &t->allelem);
+//  list_insert_ordered(&all_list, &t->allelem, less, NULL);
   intr_set_level (old_level);
 }
 
@@ -520,8 +544,11 @@ next_thread_to_run (void)
 {
   if (list_empty (&ready_list))
     return idle_thread;
-  else
-    return list_entry (list_pop_front (&ready_list), struct thread, elem);
+  else{
+      struct thread* result = list_entry (list_pop_front (&ready_list), struct thread, elem);
+      printf("hello from line 542 -> result->priority: %d, result->effective_priority: %d\n", result->priority, result->effective_priority);
+      return result;
+  }
 }
 
 /* Completes a thread switch by activating the new thread's page
@@ -610,3 +637,13 @@ allocate_tid (void)
 /* Offset of `stack' member within `struct thread'.
    Used by switch.S, which can't figure it out on its own. */
 uint32_t thread_stack_ofs = offsetof (struct thread, stack);
+
+
+
+/*
+ * process a20      process b20        process c100
+ *                                         lock c -> 100
+ *
+ *
+ *
+ * */

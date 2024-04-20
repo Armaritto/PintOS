@@ -90,7 +90,7 @@ struct thread
     int priority;                       /* Priority. */
     int effective_priority;             /* Effective Priority*/
     struct lock *waits_for;             /* Lock thread waits for. */
-	 struct list acquired_locks;         /* Locks the thread currently holds. */
+    struct list acquired_locks;         /* Locks the thread currently holds. */
     struct list_elem allelem;           /* List element for all threads list. */
 
     /* Shared between thread.c and synch.c. */
@@ -134,7 +134,7 @@ typedef void thread_action_func (struct thread *t, void *aux);
 void thread_foreach (thread_action_func *, void *);
 
 /* Iterates through the ready list and returns the highest priority found. Used for immediate yielding. */
-int threads_get_max_priority(void) {}
+int threads_get_max_priority(void);
 
 int thread_get_priority (void);
 void thread_set_priority (int);
