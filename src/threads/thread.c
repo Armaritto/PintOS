@@ -11,6 +11,8 @@
 #include "threads/switch.h"
 #include "threads/synch.h"
 #include "threads/vaddr.h"
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #ifdef USERPROG
 #include "userprog/process.h"
 #endif
@@ -87,18 +89,13 @@ static tid_t allocate_tid (void);
 
    It is not safe to call thread_current() until this function
    finishes. */
-
-  
-#define MAX(x, y) (((x) > (y)) ? (x) : (y))
-#define MIN(x, y) (((x) < (y)) ? (x) : (y))
-
 void
 thread_init (void) 
 {
   ASSERT (intr_get_level () == INTR_OFF);
 
   lock_init (&tid_lock);
-  lock_init (&waits_for);
+    //lock_init (&waits_for);
   list_init (&ready_list);
   list_init (&all_list);
 
@@ -107,7 +104,7 @@ thread_init (void)
   init_thread (initial_thread, "main", PRI_DEFAULT);
   initial_thread->status = THREAD_RUNNING;
   initial_thread->tid = allocate_tid ();
-  initial_thread->effective_priority = PRI_MIN;
+//  initial_thread->effective_priority = PRI_MIN;
 }
 
 /* Starts preemptive thread scheduling by enabling interrupts.
@@ -190,6 +187,7 @@ thread_create (const char *name, int priority,
     return TID_ERROR;
 
   /* Initialize thread. */
+//  t->effective_priority=PRI_MIN;
   init_thread (t, name, priority);
   tid = t->tid = allocate_tid ();
 
@@ -210,7 +208,7 @@ thread_create (const char *name, int priority,
 
   /* Add to run queue. */
   thread_unblock (t);
-
+    ///TODO
   return tid;
 }
 
@@ -247,7 +245,8 @@ thread_unblock (struct thread *t)
 
   old_level = intr_disable ();
   ASSERT (t->status == THREAD_BLOCKED);
-  list_push_back (&ready_list, &t->elem);
+//  list_push_back (&ready_list, &t->elem);
+  list_insert_ordered(&ready_list, &t->elem, less, NULL);
   t->status = THREAD_READY;
   intr_set_level (old_level);
 }
@@ -318,8 +317,9 @@ thread_yield (void)
 
   old_level = intr_disable ();
   if (cur != idle_thread) 
-    list_push_back (&ready_list, &cur->elem);
-  cur->status = THREAD_READY;
+    //list_push_back (&ready_list, &cur->elem);
+      list_insert_ordered(&ready_list, &cur->elem, less, NULL);
+    cur->status = THREAD_READY;
   schedule ();
   intr_set_level (old_level);
 }
@@ -345,6 +345,7 @@ thread_foreach (thread_action_func *func, void *aux)
 void
 thread_set_priority (int new_priority) 
 {
+    ///TODO
   thread_current ()->priority = new_priority;
 }
 
@@ -352,26 +353,8 @@ thread_set_priority (int new_priority)
 int
 thread_get_priority (void) 
 {
-  return MAX(thread_current()->priority, thread_current()->effective_priority);
+  return thread_current ()->priority;
 }
-
-/* gdeeda -> */
-/// Returns the highest priority of all threads in the ready list
-/// or the current thread's priority if the ready list is empty
-/// or the current thread's effective priority if the ready list is empty
-/// and the current thread's effective priority is higher than the current thread's priority
-int 
-threads_get_max_priority(void)
-{
-  struct list_elem *e;
-  int max_priority = PRI_MIN;
-  for (e = list_begin (&ready_list); e != list_end (&ready_list);e = list_next (e)){
-    max_priority = MAX(max_priority, MAX(list_entry(e, struct thread, elem)->priority,
-                                          list_entry(e, struct thread, elem)->effective_priority));
-  }
-  return max_priority;
-}
-
 
 /* Sets the current thread's nice value to NICE. */
 void
@@ -403,6 +386,7 @@ thread_get_recent_cpu (void)
   /* Not yet implemented. */
   return 0;
 }
+
 
 /* Idle thread.  Executes when no other thread is ready to run.
 
@@ -490,11 +474,25 @@ init_thread (struct thread *t, const char *name, int priority)
   strlcpy (t->name, name, sizeof t->name);
   t->stack = (uint8_t *) t + PGSIZE;
   t->priority = priority;
+  t->effective_priority = t->priority;
   t->magic = THREAD_MAGIC;
 
   old_level = intr_disable ();
-  list_push_back (&all_list, &t->allelem);
+  list_insert_ordered(&all_list, &t->allelem, less, NULL);
+  //list_push_back (&all_list, &t->allelem);
   intr_set_level (old_level);
+}
+
+int
+threads_get_max_priority(void)
+{
+    struct list_elem *e;
+    int max_priority = PRI_MIN;
+    for (e = list_begin (&ready_list); e != list_end (&ready_list);e = list_next (e)){
+        max_priority = MAX(max_priority, MAX(list_entry(e, struct thread, elem)->priority,
+                list_entry(e, struct thread, elem)->effective_priority));
+    }
+    return max_priority;
 }
 
 /* Allocates a SIZE-byte frame at the top of thread T's stack and
@@ -606,6 +604,19 @@ allocate_tid (void)
 
   return tid;
 }
+
+bool
+less (const struct list_elem *a, const struct list_elem *b, void *aux)
+{
+    struct thread *a_elem = list_entry (a, struct thread, elem);
+    struct thread *b_elem = list_entry (b, struct thread, elem);
+
+    //printf("hello from line 102 in thread.c -> a_elem->priority: %d, a_elem->effective_priority: %d\n", a_elem->priority, a_elem->effective_priority);
+//    printf("hello from line 103 in thread.c -> a_elem->priority: %d, a_elem->effective_priority: %d\n", b_elem->priority, b_elem->effective_priority);
+    return a_elem->priority > b_elem->priority;
+    //return MAX(a_elem->priority, a_elem->effective_priority) > MAX(b_elem->priority, b_elem->effective_priority);
+}
+
 
 /* Offset of `stack' member within `struct thread'.
    Used by switch.S, which can't figure it out on its own. */

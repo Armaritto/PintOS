@@ -88,11 +88,10 @@ struct thread
     char name[16];                      /* Name (for debugging purposes). */
     uint8_t *stack;                     /* Saved stack pointer. */
     int priority;                       /* Priority. */
-    int effective_priority;             /* Effective Priority*/
     struct lock *waits_for;             /* Lock thread waits for. */
-	 struct list acquired_locks;         /* Locks the thread currently holds. */
+    struct list acquired_locks;         /* Locks the thread currently holds. */
     struct list_elem allelem;           /* List element for all threads list. */
-
+    int effective_priority;             /* Effective priority. */
     /* Shared between thread.c and synch.c. */
     struct list_elem elem;              /* List element. */
 
@@ -115,10 +114,10 @@ void thread_start (void);
 
 void thread_tick (void);
 void thread_print_stats (void);
-
+bool less(const struct list_elem *a, const struct list_elem *b, void *aux);
 typedef void thread_func (void *aux);
 tid_t thread_create (const char *name, int priority, thread_func *, void *);
-
+int threads_get_max_priority(void);
 void thread_block (void);
 void thread_unblock (struct thread *);
 
@@ -134,7 +133,7 @@ typedef void thread_action_func (struct thread *t, void *aux);
 void thread_foreach (thread_action_func *, void *);
 
 /* Iterates through the ready list and returns the highest priority found. Used for immediate yielding. */
-int threads_get_max_priority(void) {}
+int threads_get_max_priority(void);
 
 int thread_get_priority (void);
 void thread_set_priority (int);
