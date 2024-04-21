@@ -89,7 +89,7 @@ struct thread
     uint8_t *stack;                     /* Saved stack pointer. */
     int priority;                       /* Priority. */
     struct list_elem allelem;           /* List element for all threads list. */
-
+    int effective_priority;             /* Effective priority. */
     /* Shared between thread.c and synch.c. */
     struct list_elem elem;              /* List element. */
 
@@ -112,10 +112,10 @@ void thread_start (void);
 
 void thread_tick (void);
 void thread_print_stats (void);
-
+bool less(const struct list_elem *a, const struct list_elem *b, void *aux);
 typedef void thread_func (void *aux);
 tid_t thread_create (const char *name, int priority, thread_func *, void *);
-
+int threads_get_max_priority(void);
 void thread_block (void);
 void thread_unblock (struct thread *);
 
