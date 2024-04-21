@@ -73,6 +73,7 @@ static bool is_thread (struct thread *) UNUSED;
 static void *alloc_frame (struct thread *, size_t size);
 static void schedule (void);
 void thread_schedule_tail (struct thread *prev);
+int threads_get_max_priority(void);
 static tid_t allocate_tid (void);
 
 /* Initializes the threading system by transforming the code
@@ -88,8 +89,6 @@ static tid_t allocate_tid (void);
 
    It is not safe to call thread_current() until this function
    finishes. */
-
-
 void
 thread_init (void) 
 {
@@ -105,6 +104,7 @@ thread_init (void)
   init_thread (initial_thread, "main", PRI_DEFAULT);
   initial_thread->status = THREAD_RUNNING;
   initial_thread->tid = allocate_tid ();
+//  initial_thread->effective_priority = PRI_MIN;
 }
 
 /* Starts preemptive thread scheduling by enabling interrupts.
@@ -187,6 +187,7 @@ thread_create (const char *name, int priority,
     return TID_ERROR;
 
   /* Initialize thread. */
+//  t->effective_priority=PRI_MIN;
   init_thread (t, name, priority);
   tid = t->tid = allocate_tid ();
 
@@ -207,7 +208,7 @@ thread_create (const char *name, int priority,
 
   /* Add to run queue. */
   thread_unblock (t);
-
+    ///TODO
   return tid;
 }
 
@@ -244,7 +245,7 @@ thread_unblock (struct thread *t)
 
   old_level = intr_disable ();
   ASSERT (t->status == THREAD_BLOCKED);
-  //list_push_back (&ready_list, &t->elem);
+//  list_push_back (&ready_list, &t->elem);
   list_insert_ordered(&ready_list, &t->elem, less, NULL);
   t->status = THREAD_READY;
   intr_set_level (old_level);
@@ -344,6 +345,7 @@ thread_foreach (thread_action_func *func, void *aux)
 void
 thread_set_priority (int new_priority) 
 {
+    ///TODO
   thread_current ()->priority = new_priority;
 }
 
