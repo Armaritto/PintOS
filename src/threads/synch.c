@@ -31,7 +31,8 @@
 #include <string.h>
 #include "threads/interrupt.h"
 #include "threads/thread.h"
-
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
 /* Initializes semaphore SEMA to VALUE.  A semaphore is a
    nonnegative integer along with two atomic operators for
    manipulating it:
@@ -176,7 +177,6 @@ void
 lock_init (struct lock *lock)
 {
   ASSERT (lock != NULL);
-
   lock->holder = NULL;
   sema_init (&lock->semaphore, 1);
   lock->effective_priority = PRI_MIN;
@@ -196,9 +196,21 @@ lock_acquire (struct lock *lock)
   ASSERT (lock != NULL);
   ASSERT (!intr_context ());
   ASSERT (!lock_held_by_current_thread (lock));
-
+  lock->effective_priority = MAX(thread_current()->effective_priority, thread_current()->priority);
   sema_down (&lock->semaphore);
   lock->holder = thread_current ();
+  donate(&lock);
+}
+
+int
+donate(struct lock *lock)
+{
+  thread_current()->waits_for = lock;
+  lock->effective_priority = MAX(lock->effective_priority, MAX(thread_current()->effective_priority, thread_current()->priority));
+  thread_current()->effective_priority = lock->effective_priority;
+  if(thread_current()->waits_for != NULL){
+    //donate(thread_current()->waits_for);
+  }
 }
 
 /* Tries to acquires LOCK and returns true if successful or false

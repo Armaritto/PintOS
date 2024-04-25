@@ -248,6 +248,7 @@ thread_unblock (struct thread *t)
 //  list_push_back (&ready_list, &t->elem);
   list_insert_ordered(&ready_list, &t->elem, less, NULL);
   t->status = THREAD_READY;
+    //thread_yield();             //----------------------------------------------->>>>>> IS THIS CORRECT? NOOOOOO IIIII DOOOONTTTT THINKKKKKK SOOOOOOOOOOo
   intr_set_level (old_level);
 }
 
@@ -317,10 +318,9 @@ thread_yield (void)
 
   old_level = intr_disable ();
   if (cur != idle_thread) 
-    //list_push_back (&ready_list, &cur->elem);
       list_insert_ordered(&ready_list, &cur->elem, less, NULL);
     cur->status = THREAD_READY;
-  schedule ();
+  schedule();
   intr_set_level (old_level);
 }
 
@@ -353,7 +353,7 @@ thread_set_priority (int new_priority)
 int
 thread_get_priority (void) 
 {
-  return thread_current ()->priority;
+  return MAX(thread_current ()->priority, thread_current ()->effective_priority);
 }
 
 /* Sets the current thread's nice value to NICE. */
@@ -474,7 +474,8 @@ init_thread (struct thread *t, const char *name, int priority)
   strlcpy (t->name, name, sizeof t->name);
   t->stack = (uint8_t *) t + PGSIZE;
   t->priority = priority;
-  t->effective_priority = t->priority;
+  t->effective_priority = PRI_MIN; //t->priority;  //------------------------------->>> PRI_MIN ?????????????????????????????????????????
+  t->waits_for = NULL;
   t->magic = THREAD_MAGIC;
 
   old_level = intr_disable ();
