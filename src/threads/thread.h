@@ -4,6 +4,7 @@
 #include <debug.h>
 #include <list.h>
 #include <stdint.h>
+#include "real.h"
 
 /* States in a thread's life cycle. */
 enum thread_status
@@ -95,6 +96,9 @@ struct thread
     int effective_priority;             /* Effective priority. */
     /* Shared between thread.c and synch.c. */
     struct list_elem elem;              /* List element. */
+    real recent_cpu ;                   /* cpu time of the thread*/
+    int nice ;                          /* nice for each thread*/
+    int dynamic_priority ;              /* for advanced schedule*/
 
 #ifdef USERPROG
     /* Owned by userprog/process.c. */
