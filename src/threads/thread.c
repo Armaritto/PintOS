@@ -77,6 +77,18 @@ void thread_schedule_tail (struct thread *prev);
 int threads_get_max_priority(void);
 static tid_t allocate_tid (void);
 
+/*26 APRIL*/
+//void
+//checkInvoke(struct thread *t, void *aux UNUSED)
+//{
+//    if (t->status == THREAD_BLOCKED && t->ticks_blocked > 0)
+//    {
+//        --t->ticks_blocked;
+//        if (t->ticks_blocked == 0)
+//            thread_unblock(t);
+//    }
+//}
+
 /* Initializes the threading system by transforming the code
    that's currently running into a thread.  This can't work in
    general and it is possible in this case only because loader.S
@@ -96,7 +108,6 @@ thread_init (void)
   ASSERT (intr_get_level () == INTR_OFF);
 
   lock_init (&tid_lock);
-    //lock_init (&waits_for);
   list_init (&ready_list);
   list_init (&all_list);
 
@@ -105,7 +116,6 @@ thread_init (void)
   init_thread (initial_thread, "main", PRI_DEFAULT);
   initial_thread->status = THREAD_RUNNING;
   initial_thread->tid = allocate_tid ();
-//  initial_thread->effective_priority = PRI_MIN;
 }
 
 /* Starts preemptive thread scheduling by enabling interrupts.
@@ -124,6 +134,22 @@ thread_start (void)
   /* Wait for the idle thread to initialize idle_thread. */
   sema_down (&idle_started);
 }
+/*26 APRIL*/
+//void
+//notify_Lock_Priority(struct thread* t)
+//{
+//    if(!list_empty(&(t->acquired_locks))) {
+//        int max = (list_entry(list_front(&(t->acquired_locks)),struct lock, elem))->effective_priority;
+//        if (t->effective_priority > max)
+//            t->priority = t->effective_priority;
+//        else
+//            t->priority = max;
+//    }
+//    else{
+//        t->priority = t->effective_priority;
+//    }
+//    updateNestedPriority(t);
+//}
 
 /* Called by the timer interrupt handler at each timer tick.
    Thus, this function runs in an external interrupt context. */
@@ -209,7 +235,10 @@ thread_create (const char *name, int priority,
 
   /* Add to run queue. */
   thread_unblock (t);
-    ///TODO
+
+  /*26 APRIL*/
+  if (thread_current()->priority < priority)
+     thread_yield();
   return tid;
 }
 
@@ -247,9 +276,8 @@ thread_unblock (struct thread *t)
   old_level = intr_disable ();
   ASSERT (t->status == THREAD_BLOCKED);
 //  list_push_back (&ready_list, &t->elem);
-  list_insert_ordered(&ready_list, &t->elem, less, NULL);
+  list_insert_ordered(&ready_list, &t->elem, (list_less_func *)&less, NULL);
   t->status = THREAD_READY;
-    //thread_yield();             //----------------------------------------------->>>>>> IS THIS CORRECT? NOOOOOO IIIII DOOOONTTTT THINKKKKKK SOOOOOOOOOOo
   intr_set_level (old_level);
 }
 
@@ -319,7 +347,7 @@ thread_yield (void)
 
   old_level = intr_disable ();
   if (cur != idle_thread) 
-      list_insert_ordered(&ready_list, &cur->elem, less, NULL);
+      list_insert_ordered(&ready_list, &cur->elem, (list_less_func *)less, NULL);
     cur->status = THREAD_READY;
   schedule();
   intr_set_level (old_level);
@@ -346,8 +374,17 @@ thread_foreach (thread_action_func *func, void *aux)
 void
 thread_set_priority (int new_priority) 
 {
-    ///TODO
-  thread_current ()->priority = new_priority;
+    /*26 APRIL*/
+    if (thread_mlfqs)
+        return;
+    enum intr_level old_level = intr_disable();
+    int old_priority = thread_current ()->priority;
+    thread_current ()->effective_priority = new_priority;
+    if(list_empty(&thread_current ()->acquired_locks) || new_priority > old_priority) {
+        thread_current ()->priority = new_priority;
+        thread_yield();
+    }
+    intr_set_level(old_level);
 }
 
 /* Returns the current thread's priority. */
@@ -475,13 +512,12 @@ init_thread (struct thread *t, const char *name, int priority)
   strlcpy (t->name, name, sizeof t->name);
   t->stack = (uint8_t *) t + PGSIZE;
   t->priority = priority;
-  t->effective_priority = PRI_MIN; //t->priority;  //------------------------------->>> PRI_MIN ?????????????????????????????????????????
+  t->effective_priority = priority; //PRI_MIN;  //------------------------------->>> PRI_MIN ?????????????????????????????????????????
   t->waits_for = NULL;
   t->magic = THREAD_MAGIC;
-
+  list_init(&t->acquired_locks); /*26 APRIL*/
   old_level = intr_disable ();
   list_insert_ordered(&all_list, &t->allelem, less, NULL);
-  //list_push_back (&all_list, &t->allelem);
   intr_set_level (old_level);
 }
 
