@@ -119,7 +119,7 @@ void thread_start (void);
 
 void thread_tick (void);
 void thread_print_stats (void);
-bool less(const struct list_elem *a, const struct list_elem *b, void *aux);
+bool less(struct list_elem *a,struct list_elem *b, void *aux);
 typedef void thread_func (void *aux);
 tid_t thread_create (const char *name, int priority, thread_func *, void *);
 int threads_get_max_priority(void);
