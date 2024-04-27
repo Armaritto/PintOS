@@ -1,64 +1,50 @@
-priority-change
-    Creating a high-priority thread 2.
-    Thread 2 should have just lowered its priority.
-    Thread 2 should have just exited.
-    Thread 2 now lowering priority.
-    Thread 2 exiting.
-
+priority-change ---------------------done
 priority-donate-one
-    This thread should have priority 41.  Actual priority: 41.
-    This thread should have priority 42.  Actual priority: 42.
-    acquire2, acquire1 must already have finished, in that order.
-    This should be the last line before finishing this test.
-    acquire1: got the lock
-    acquire1: done
-    acquire2: got the lock
-    acquire2: done
-        Here's a step-by-step breakdown of what happens in the code:
-        The main thread acquires a lock.
-        It creates two higher-priority threads, acquire1 and acquire2, passing the lock as an argument to both threads.
-        The main thread prints the expected priority of acquire1 and acquire2.
-        The main thread releases the lock.
-        The main thread prints a message indicating that acquire2 and acquire1 must have already finished, in that order.
-        The main thread prints the last line before finishing the test.
-        The acquire1 thread function is executed.
-        It acquires the lock.
-        It prints a message indicating that it got the lock.
-        It releases the lock.
-        It prints a message indicating that it is done.
-        The acquire2 thread function is executed.
-        It acquires the lock.
-        It prints a message indicating that it got the lock.
-        It releases the lock.
-        It prints a message indicating that it is done.
-        Note: The output assumes that the implementation of the threads.c file is correct and that the thread scheduling and priority donation mechanisms are functioning as intended.
-
 priority-donate-multiple
-
-
 priority-donate-multiple2
-
-
 priority-donate-nest
-
-
 priority-donate-sema
-
-
 priority-donate-lower
-
-
-priority-fifo
-
-
-priority-preempt
-
-
-priority-sema
-
-
-priority-condvar
-
-
+priority-fifo ---------------------done
+priority-preempt ---------------------done
+priority-sema ---------------------done
+priority-condvar ---------------------done
 priority-donate-chain
-    
+
+
+
+
+        Creating a high-priority thread 2.
+        Thread 2 should have just lowered its priority.
+        Thread 2 should have just exited.
+        Thread 2 now lowering priority.
+        Thread 2 exiting.
+
+
+
+        This thread should have priority 41.  Actual priority: 41.
+        This thread should have priority 42.  Actual priority: 42.
+        acquire2, acquire1 must already have finished, in that order.
+        This should be the last line before finishing this test.
+        acquire1: got the lock
+        acquire1: done
+        acquire2: got the lock
+        acquire2: done
+            Here's a step-by-step breakdown of what happens in the code:
+            The main thread acquires a lock.
+            It creates two higher-priority threads, acquire1 and acquire2, passing the lock as an argument to both threads.
+            The main thread prints the expected priority of acquire1 and acquire2.
+            The main thread releases the lock.
+            The main thread prints a message indicating that acquire2 and acquire1 must have already finished, in that order.
+            The main thread prints the last line before finishing the test.
+            The acquire1 thread function is executed.
+            It acquires the lock.
+            It prints a message indicating that it got the lock.
+            It releases the lock.
+            It prints a message indicating that it is done.
+            The acquire2 thread function is executed.
+            It acquires the lock.
+            It prints a message indicating that it got the lock.
+            It releases the lock.
+            It prints a message indicating that it is done.
+            Note: The output assumes that the implementation of the threads.c file is correct and that the thread scheduling and priority donation mechanisms are functioning as intended.

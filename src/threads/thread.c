@@ -276,6 +276,13 @@ thread_unblock (struct thread *t)
   old_level = intr_disable ();
   ASSERT (t->status == THREAD_BLOCKED);
 //  list_push_back (&ready_list, &t->elem);
+
+//    struct list_elem *e;
+//    for (e = list_begin (&ready_list); e != list_end (&ready_list); e = list_next (e)) {
+//        struct thread *t = list_entry (e, struct thread, elem);
+//        printf("%d ", t->priority);
+//    }
+//    printf("hello from line 279 in thread.c -> t->priority: %d, t->effective_priority: %d\n", t->priority, t->effective_priority);
   list_insert_ordered(&ready_list, &t->elem, (list_less_func *)&less, NULL);
   t->status = THREAD_READY;
   intr_set_level (old_level);
@@ -342,7 +349,7 @@ thread_yield (void)
 {
   struct thread *cur = thread_current ();
   enum intr_level old_level;
-  
+
   ASSERT (!intr_context ());
 
   old_level = intr_disable ();
@@ -371,6 +378,10 @@ thread_foreach (thread_action_func *func, void *aux)
 }
 
 /* Sets the current thread's priority to NEW_PRIORITY. */
+/*
+ * pri = 50
+ * pri = default == 32
+ * */
 void
 thread_set_priority (int new_priority) 
 {
@@ -512,7 +523,7 @@ init_thread (struct thread *t, const char *name, int priority)
   strlcpy (t->name, name, sizeof t->name);
   t->stack = (uint8_t *) t + PGSIZE;
   t->priority = priority;
-  t->effective_priority = priority; //PRI_MIN;  //------------------------------->>> PRI_MIN ?????????????????????????????????????????
+  t->effective_priority = priority; //PRI_MIN  //------------------------------->>> PRI_MIN ?????????????????????????????????????????
   t->waits_for = NULL;
   t->magic = THREAD_MAGIC;
   list_init(&t->acquired_locks); /*26 APRIL*/
@@ -643,16 +654,23 @@ allocate_tid (void)
   return tid;
 }
 
-bool
-less (const struct list_elem *a, const struct list_elem *b, void *aux)
-{
-    struct thread *a_elem = list_entry (a, struct thread, elem);
-    struct thread *b_elem = list_entry (b, struct thread, elem);
+//bool
+//less (const struct list_elem *a, const struct list_elem *b, void *aux)
+//{
+//    struct thread *a_elem = list_entry (a, struct thread, elem);
+//    struct thread *b_elem = list_entry (b, struct thread, elem);
+//
+//    printf("hello from less 102 in thread.c -> a_elem->priority: %d, a_elem->effective_priority: %d\n", a_elem->priority, a_elem->effective_priority);
+//    printf("hello from less 103 in thread.c -> b_elem->priority: %d, a_elem->effective_priority: %d\n", b_elem->priority, b_elem->effective_priority);
+//    return a_elem->priority > b_elem->priority;
+//    //return MAX(a_elem->priority, a_elem->effective_priority) > MAX(b_elem->priority, b_elem->effective_priority);
+//}
 
-    //printf("hello from line 102 in thread.c -> a_elem->priority: %d, a_elem->effective_priority: %d\n", a_elem->priority, a_elem->effective_priority);
-//    printf("hello from line 103 in thread.c -> a_elem->priority: %d, a_elem->effective_priority: %d\n", b_elem->priority, b_elem->effective_priority);
-    return a_elem->priority > b_elem->priority;
-    //return MAX(a_elem->priority, a_elem->effective_priority) > MAX(b_elem->priority, b_elem->effective_priority);
+bool
+less(struct list_elem *elem1, struct list_elem *elem2, void *aux){
+    struct thread * t1 = list_entry (elem1, struct thread, elem);
+    struct thread * t2 = list_entry (elem2, struct thread, elem);
+    return t1->priority > t2->priority;
 }
 
 
