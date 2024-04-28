@@ -34,7 +34,7 @@
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 /* Initializes semaphore SEMA to VALUE.  A semaphore is a
-   nonnegative integer along with two atomic operators for
+   non-negative integer along with two atomic operators for
    manipulating it:
 
    - down or "P": wait for the value to become positive, then
@@ -47,14 +47,11 @@ bool
 max_priority(struct list_elem *elem1, struct list_elem *elem2, void *aux) {
     struct thread *t1 = list_entry(elem1, struct thread, elem);
     struct thread *t2 = list_entry(elem2, struct thread, elem);
-    return t1->priority < t2->priority;
+    return t1->effective_priority < t2->effective_priority;
 }
 
-
-
 void
-sema_init (struct semaphore *sema, unsigned value) 
-{
+sema_init (struct semaphore *sema, unsigned value){
   ASSERT (sema != NULL);
 
   sema->value = value;
@@ -69,17 +66,19 @@ sema_init (struct semaphore *sema, unsigned value)
    interrupts disabled, but if it sleeps then the next scheduled
    thread will probably turn interrupts back on. */
 void
-sema_down (struct semaphore *sema) 
+sema_down (struct semaphore *sema)
 {
   enum intr_level old_level;
   ASSERT (sema != NULL);
   ASSERT (!intr_context ());
   old_level = intr_disable ();
-  while (sema->value == 0) 
-    {
+  while (sema->value == 0){
       list_insert_ordered(&sema->waiters, &thread_current ()->elem, &less, NULL);
+      if (!thread_mlfqs) {
+            notifyChangeInLocksPriority(thread_current());
+      }
       thread_block ();
-    }
+  }
   sema->value--;
   intr_set_level (old_level);
 }
@@ -203,31 +202,21 @@ lock_init (struct lock *lock)
    interrupts disabled, but interrupts will be turned back on if
    we need to sleep. */
 void
-lock_acquire (struct lock *lock)
-{
+lock_acquire (struct lock *lock){
   ASSERT (lock != NULL);
   ASSERT (!intr_context ());
   ASSERT (!lock_held_by_current_thread (lock));
   thread_current()->waits_for = lock;
   sema_down (&lock->semaphore);
   lock->holder = thread_current ();
-  if(!thread_mlfqs)
-    donate(lock);
-}
-
-int
-donate(struct lock *lock)
-{
-    thread_current()-> waits_for = NULL;
-
-    if(!list_empty(&lock->semaphore.waiters)){
-        lock->effective_priority =list_entry(list_front(&lock->semaphore.waiters), struct thread, elem)->effective_priority;
-    }
-    else{
-        lock->effective_priority = PRI_MIN; //----------------------------------------------------->>> not zero
-    }
-    list_insert_ordered(&(lock->holder->acquired_locks), &(lock->elem), &less, NULL);
-    return 0;
+  if(!thread_mlfqs){
+      thread_current()-> waits_for = NULL;
+      if(!list_empty(&lock->semaphore.waiters))
+          lock->effective_priority =list_entry(list_front(&lock->semaphore.waiters), struct thread, elem)->effective_priority;
+      else
+          lock->effective_priority = PRI_MIN;
+      list_insert_ordered(&(lock->holder->acquired_locks), &(lock->elem), &less, NULL);
+  }
 }
 
 /* Tries to acquires LOCK and returns true if successful or false
@@ -263,7 +252,7 @@ lock_release (struct lock *lock)
 
   if(!thread_mlfqs){
       list_remove(&lock->elem);
-
+      notifyChangeInLocksPriority(lock->holder);
       lock->effective_priority = PRI_MIN;
   }
   lock->holder = NULL;
@@ -278,14 +267,15 @@ updateNestedPriority(struct thread* t){
     list_remove(&t->elem);
     list_insert_ordered(&t->waits_for->semaphore.waiters, &t->elem, &less, NULL);
 
-    if (t->waits_for->effective_priority < t->priority)
-        t->waits_for->effective_priority = t->priority;
+    if (t->waits_for->effective_priority < t->effective_priority)
+        t->waits_for->effective_priority = t->effective_priority;
 
     if (t->waits_for->holder != NULL) {
-        int max =  list_entry(list_front(&t->waits_for->semaphore.waiters), struct thread, elem)->priority;
-        if (t->waits_for->holder->priority >= max)
+        int maxPriority = list_entry(list_front(&t->waits_for->semaphore.waiters), struct thread, elem)->effective_priority;
+        if (t->waits_for->holder->effective_priority >= maxPriority)
             return;
-        t->waits_for->holder->priority = max;
+
+        t->waits_for->holder->priority = maxPriority;
         updateNestedPriority(t->waits_for->holder);
     }
 }
