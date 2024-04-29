@@ -13,9 +13,6 @@
 #include "threads/vaddr.h"
 #include "threads/real.h"
 #include "threads/real.c"
-
-#define MAX(x, y) (((x) > (y)) ? (x) : (y))
-#define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #ifdef USERPROG
 #include "userprog/process.h"
 #endif
@@ -42,7 +39,6 @@ static struct thread *initial_thread;
 /* Lock used by allocate_tid(). */
 static struct lock tid_lock;
 
-static struct lock waits_for;
 
 /* Stack frame for kernel_thread(). */
 struct kernel_thread_frame 
@@ -334,15 +330,14 @@ thread_foreach (thread_action_func *func, void *aux)
 void notifyChangeInLocksPriority(struct thread* t){
     
     if(!list_empty(&(t->acquired_locks))) {
-        int maxPriorityInWaiters = (list_entry(list_front(&(t->acquired_locks)), struct lock, lock_position))->greatestPriorityInWaiters;
+        int maxPriorityInWaiters = (list_entry(list_front(&(t->acquired_locks)), struct lock, lock_position))->lock_priority;
         if (t->priority > maxPriorityInWaiters)
             t->effective_priority = t->priority;
         else
             t->effective_priority= maxPriorityInWaiters;
     }
-    else{
+    else
         t->effective_priority = t->priority;
-    }
     updateNestedPriority(t);
 }
 
@@ -356,11 +351,11 @@ void thread_set_priority (int new_priority){
     notifyChangeInLocksPriority(thread_current());
 
     enum intr_level old_level = intr_disable ();
-    
-    if(!list_empty (&ready_list)) {
-        struct thread *topThread = list_entry(list_front(&ready_list), struct thread, elem);
-        if (new_priority < topThread->effective_priority) yield = true;
-    }
+        if(!list_empty (&ready_list)) {
+            struct thread *topThread = list_entry(list_front(&ready_list), struct thread, elem);
+            if (new_priority < topThread->effective_priority)
+                yield = true;
+        }
     intr_set_level (old_level);
     if (yield)
         thread_yield ();

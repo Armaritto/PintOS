@@ -31,8 +31,6 @@
 #include <string.h>
 #include "threads/interrupt.h"
 #include "threads/thread.h"
-#define MAX(x, y) (((x) > (y)) ? (x) : (y))
-#define MIN(x, y) (((x) < (y)) ? (x) : (y))
 /* Initializes semaphore SEMA to VALUE.  A semaphore is a
    non-negative integer along with two atomic operators for
    manipulating it:
@@ -76,9 +74,8 @@ void sema_down (struct semaphore *sema){
   
   while (sema->value == 0){
       list_insert_ordered(&sema->waiters, &thread_current ()->elem, &less, NULL);
-      if (!thread_mlfqs) {
+      if (!thread_mlfqs)
           notifyChangeInLocksPriority(thread_current());
-      }
       thread_block ();
   }
 
@@ -196,14 +193,14 @@ lock_init (struct lock *lock)
   ASSERT (lock != NULL);
   lock->holder = NULL;
   sema_init (&lock->semaphore, 1);
-  lock->greatestPriorityInWaiters = PRI_MIN;
+  lock->lock_priority = PRI_MIN;
 }
 
 
 bool compare_locks_priority(struct list_elem *first, struct list_elem *second, void *aux){
     struct lock *l1 = list_entry (first, struct lock, lock_position);
     struct lock *l2 = list_entry (second, struct lock, lock_position);
-    return l1->greatestPriorityInWaiters > l2->greatestPriorityInWaiters;
+    return l1->lock_priority > l2->lock_priority;
 }
 
 /* Acquires LOCK, sleeping until it becomes available if
@@ -229,12 +226,11 @@ lock_acquire (struct lock *lock)
         thread_current()->waits_for = NULL;
 
         if (!list_empty(&lock->semaphore.waiters)) {
-            lock->greatestPriorityInWaiters = list_entry(list_front(&lock->semaphore.waiters),
+            lock->lock_priority = list_entry(list_front(&lock->semaphore.waiters),
             struct thread, elem)->effective_priority;
-        } else {
-            lock->greatestPriorityInWaiters = 0;
         }
-
+        else
+            lock->lock_priority = PRI_MIN;
         list_insert_ordered(&(lock->holder->acquired_locks), &(lock->lock_position), &compare_locks_priority, NULL);
     }
 }
@@ -272,7 +268,6 @@ lock_release (struct lock *lock)
     if (!thread_mlfqs) {
         list_remove(&(lock->lock_position));
         notifyChangeInLocksPriority(lock->holder);
-        lock->greatestPriorityInWaiters = 0;
     }
 
     lock->holder = NULL;
@@ -286,14 +281,13 @@ updateNestedPriority(struct thread* t){
     list_remove(&t->elem);
     list_insert_ordered(&t->waits_for->semaphore.waiters, &t->elem, &less, NULL);
 
-    if (t->waits_for->greatestPriorityInWaiters < t->effective_priority)
-        t->waits_for->greatestPriorityInWaiters = t->effective_priority;
+    if (t->waits_for->lock_priority < t->effective_priority)
+        t->waits_for->lock_priority = t->effective_priority;
 
     if (t->waits_for->holder != NULL) {
         int maxPriority = list_entry(list_front(&t->waits_for->semaphore.waiters), struct thread, elem)->effective_priority;
         if (t->waits_for->holder->effective_priority >= maxPriority)
             return;
-
         t->waits_for->holder->effective_priority = maxPriority;
         updateNestedPriority(t->waits_for->holder);
     }
