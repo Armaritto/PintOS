@@ -417,7 +417,7 @@ thread_get_recent_cpu (void)
 void
 calc_priority(struct thread* t)
 {
-    t->priority = convert_real_to_int(
+    t->effective_priority = convert_real_to_int(
             subtract_y_from_x(
                     convert_int_to_real(PRI_MAX),
                     add_x_and_y(divide_x_by_y(t->recent_cpu.val, convert_int_to_real(4)), divide_m_by_n(t->nice,2))));
