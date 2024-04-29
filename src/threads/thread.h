@@ -8,12 +8,12 @@
 
 /* States in a thread's life cycle. */
 enum thread_status
-  {
+{
     THREAD_RUNNING,     /* Running thread. */
     THREAD_READY,       /* Not running but ready to run. */
     THREAD_BLOCKED,     /* Waiting for an event to trigger. */
     THREAD_DYING        /* About to be destroyed. */
-  };
+};
 
 /* Thread identifier type.
    You can redefine this to whatever type you like. */
@@ -82,13 +82,13 @@ typedef int tid_t;
    ready state is on the run queue, whereas only a thread in the
    blocked state is on a semaphore wait list. */
 struct thread
-  {
+{
     /* Owned by thread.c. */
     tid_t tid;                          /* Thread identifier. */
     enum thread_status status;          /* Thread state. */
     char name[16];                      /* Name (for debugging purposes). */
     uint8_t *stack;                     /* Saved stack pointer. */
-    int priority;                       /* Priority. */
+    int priority;                       /* Priority and works in advanced schedule*/
     int64_t end_ticks;
     struct lock *waits_for;             /* Lock the thread is waiting for. */
     struct list acquired_locks;         /* Locks the thread currently holds. */
@@ -98,8 +98,6 @@ struct thread
     struct list_elem elem;              /* List element. */
     real recent_cpu ;                   /* cpu time of the thread*/
     int nice ;                          /* nice for each thread*/
-    int dynamic_priority ;              /* for advanced schedule*/
-
 #ifdef USERPROG
     /* Owned by userprog/process.c. */
     uint32_t *pagedir;                  /* Page directory. */
@@ -107,12 +105,13 @@ struct thread
 
     /* Owned by thread.c. */
     unsigned magic;                     /* Detects stack overflow. */
-  };
+};
 
 /* If false (default), use round-robin scheduler.
    If true, use multi-level feedback queue scheduler.
    Controlled by kernel command-line option "-o mlfqs". */
 extern bool thread_mlfqs;
+extern real load_average;
 
 void thread_init (void);
 void thread_start (void);
@@ -137,15 +136,19 @@ void thread_yield (void);
 typedef void thread_action_func (struct thread *t, void *aux);
 void thread_foreach (thread_action_func *, void *);
 
-/* Iterates through the ready list and returns the highest priority found. Used for immediate yielding. */
-int threads_get_max_priority(void);
 
 int thread_get_priority (void);
 void thread_set_priority (int);
+
+void notifyChangeInLocksPriority(struct thread *t);
+
 
 int thread_get_nice (void);
 void thread_set_nice (int);
 int thread_get_recent_cpu (void);
 int thread_get_load_avg (void);
-
+void calc_priority(struct thread *t );
+void calc_cpu(struct thread* t);
+void calc_load_average() ;
+void calc_recent_cpu_eq(struct thread *t) ;
 #endif /* threads/thread.h */
