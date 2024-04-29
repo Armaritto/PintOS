@@ -96,7 +96,7 @@ static bool compare_ticks(const struct list_elem *a,
     if (t1->end_ticks < t2->end_ticks)
         return true;
     else if (t1->end_ticks == t2->end_ticks) {
-        if (t1->priority > t2->priority)
+        if (t1->effective_priority > t2->effective_priority)
             return true;
     }
     return false;
@@ -110,7 +110,7 @@ timer_sleep (int64_t ticks) {
 
   enum intr_level old_level = intr_disable();
 
-  thread_current() -> end_ticks = timer_ticks() + ticks;
+  thread_current() ->end_ticks = timer_ticks() + ticks;
   list_insert_ordered(&blocked_threads, &thread_current() -> elem, compare_ticks, NULL);
   thread_block();
 
