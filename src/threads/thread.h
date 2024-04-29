@@ -88,7 +88,7 @@ struct thread
     enum thread_status status;          /* Thread state. */
     char name[16];                      /* Name (for debugging purposes). */
     uint8_t *stack;                     /* Saved stack pointer. */
-    int priority;                       /* Priority.and works in advanced schedule*/
+    int priority;                       /* Priority and works in advanced schedule*/
     int64_t end_ticks;
     struct lock *waits_for;             /* Lock the thread is waiting for. */
     struct list acquired_locks;         /* Locks the thread currently holds. */
@@ -136,8 +136,6 @@ void thread_yield (void);
 typedef void thread_action_func (struct thread *t, void *aux);
 void thread_foreach (thread_action_func *, void *);
 
-/* Iterates through the ready list and returns the highest priority found. Used for immediate yielding. */
-int threads_get_max_priority(void);
 
 int thread_get_priority (void);
 void thread_set_priority (int);
