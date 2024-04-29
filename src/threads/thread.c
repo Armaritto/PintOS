@@ -368,15 +368,28 @@ thread_get_priority (void){
 }
 
 /* Sets the current thread's nice value to NICE. */
+
 void
-thread_set_nice (int nice UNUSED) 
+thread_set_nice (int nice UNUSED)
 {
+    bool yield = false;
     enum intr_level old_level = intr_disable();
 
     thread_current()->nice = nice ;
 
+    struct thread* curr = thread_current();
+    curr->nice = nice;
+    calc_priority(curr);
+    if(!list_empty(&ready_list) && curr->priority<list_entry(list_front(&ready_list), struct thread, elem)->priority)
+    yield = true;
     intr_set_level (old_level);
+    if(yield){
+        thread_yield();
+    }
 }
+
+
+
 
 /* Returns the current thread's nice value. */
 int
