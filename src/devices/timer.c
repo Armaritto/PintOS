@@ -7,7 +7,7 @@
 #include "threads/interrupt.h"
 #include "threads/synch.h"
 #include "threads/thread.h"
-  
+
 /* See [8254] for hardware details of the 8254 timer chip. */
 
 #if TIMER_FREQ < 19
@@ -192,7 +192,35 @@ static void
 timer_interrupt(struct intr_frame *args UNUSED) {
     ticks++;
     thread_tick();
+    if(thread_mlfqs){// in case of advanced scheduling
+        if(thread_mlfqs){
+            enum intr_level old_level = intr_disable();
+            calc_cpu(thread_current());// to increase the recent cpu of the running thread by 1
+            intr_set_level(old_level);
+        }
+        if(timer_ticks() % TIMER_FREQ == 0){
+            enum intr_level old_level = intr_disable();
+            calc_load_average() ; // to update load average for all system
+            thread_foreach(calc_recent_cpu_eq,NULL); // to update recent cpu for all threads
+            intr_set_level(old_level);
+        }
+        if(timer_ticks() % 4 == 0){
+            enum intr_level old_level = intr_disable();
+            thread_foreach(calc_priority,NULL); // to update priority for all threads
+            intr_set_level(old_level);
+//            list_sort(&ready_list,(list_less_func *)less,NULL) ;
+//            bool yield = false ;
+//            old_level = intr_disable();
+//            struct thread* curr = thread_current();
+//            if(!list_empty(&ready_list) && curr->priority<list_entry(list_front(&ready_list), struct thread, elem)->priority)
+//            yield = true;
+//            intr_set_level (old_level);
+//            if(yield){
+//                thread_yield();
+//            }
+        }
 
+    }
     struct list_elem *e;
 
     for (e = list_begin(&blocked_threads); e != list_end(&blocked_threads);) {
