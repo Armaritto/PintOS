@@ -88,7 +88,7 @@ struct thread
     enum thread_status status;          /* Thread state. */
     char name[16];                      /* Name (for debugging purposes). */
     uint8_t *stack;                     /* Saved stack pointer. */
-    int priority;                       /* Priority. */
+    int priority;                       /* Priority.and works in advanced schedule*/
     int64_t end_ticks;
     struct lock *waits_for;             /* Lock the thread is waiting for. */
     struct list acquired_locks;         /* Locks the thread currently holds. */
@@ -98,8 +98,6 @@ struct thread
     struct list_elem elem;              /* List element. */
     real recent_cpu ;                   /* cpu time of the thread*/
     int nice ;                          /* nice for each thread*/
-    int dynamic_priority ;              /* for advanced schedule*/
-
 #ifdef USERPROG
     /* Owned by userprog/process.c. */
     uint32_t *pagedir;                  /* Page directory. */
@@ -113,6 +111,7 @@ struct thread
    If true, use multi-level feedback queue scheduler.
    Controlled by kernel command-line option "-o mlfqs". */
 extern bool thread_mlfqs;
+extern real load_average;
 
 void thread_init (void);
 void thread_start (void);
@@ -150,5 +149,8 @@ int thread_get_nice (void);
 void thread_set_nice (int);
 int thread_get_recent_cpu (void);
 int thread_get_load_avg (void);
-
+void calc_priority(struct thread *t );
+void calc_cpu(struct thread* t);
+void calc_load_average() ;
+void calc_recent_cpu_eq(struct thread *t) ;
 #endif /* threads/thread.h */

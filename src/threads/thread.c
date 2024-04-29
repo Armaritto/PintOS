@@ -11,7 +11,9 @@
 #include "threads/switch.h"
 #include "threads/synch.h"
 #include "threads/vaddr.h"
-#include "real.h"
+#include "threads/real.h"
+#include "threads/real.c"
+
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #ifdef USERPROG
@@ -63,6 +65,7 @@ static unsigned thread_ticks;   /* # of timer ticks since last yield. */
    If true, use multi-level feedback queue scheduler.
    Controlled by kernel command-line option "-o mlfqs". */
 bool thread_mlfqs;
+real load_average;
 
 static void kernel_thread (thread_func *, void *aux);
 
@@ -397,32 +400,72 @@ thread_get_priority (void)
 void
 thread_set_nice (int nice UNUSED) 
 {
-  /* Not yet implemented. */
+    enum intr_level old_level = intr_disable();
+
+    thread_current()->nice = nice ;
+
+    intr_set_level (old_level);
 }
 
 /* Returns the current thread's nice value. */
 int
 thread_get_nice (void) 
 {
-  /* Not yet implemented. */
-  return 0;
+    struct thread * cur = thread_current() ;
+    return cur->nice;
 }
 
 /* Returns 100 times the system load average. */
 int
 thread_get_load_avg (void) 
 {
-  /* Not yet implemented. */
-  return 0;
+  return convert_real_to_int_with_rounding(multiply_x_by_y(load_average.val, convert_int_to_real(100)));
 }
 
 /* Returns 100 times the current thread's recent_cpu value. */
 int
 thread_get_recent_cpu (void) 
 {
-  /* Not yet implemented. */
-  return 0;
+  struct thread * cur = thread_current() ;
+  return convert_real_to_int_with_rounding(multiply_x_by_y(cur->recent_cpu.val, convert_int_to_real(100)));
 }
+//calc priority the input thread
+void
+calc_priority(struct thread* t)
+{
+    t->priority = convert_real_to_int(
+            subtract_y_from_x(
+                    convert_int_to_real(PRI_MAX),
+                    add_x_and_y(divide_x_by_y(t->recent_cpu.val, convert_int_to_real(4)), divide_m_by_n(t->nice,2))));
+}
+// to increase recent cpu for the running thread by 1
+void
+calc_cpu(struct thread* t)
+{
+    int32_t old_cpu = t->recent_cpu.val;
+    t->recent_cpu.val = add_x_and_y(convert_int_to_real(1) , old_cpu ) ;
+}
+//cala load average for all the system
+void
+calc_load_average()
+{
+    int ready_threads = 0 ;
+    if(thread_current() != idle_thread)
+        ready_threads = (int)list_size(&ready_list)+1 ;
+    int32_t old_load = load_average.val;
+    load_average.val = add_x_and_y(multiply_x_by_y(divide_m_by_n(59,60),old_load), multiply_x_by_y(divide_m_by_n(1,60),
+                                                                                                   convert_int_to_real(ready_threads)));
+}
+//calc recent cpu for any thread using equation
+void
+calc_recent_cpu_eq(struct thread *t)
+{
+    int32_t old_cpu = t->recent_cpu.val ;
+    int32_t semi_load = multiply_x_by_y(convert_int_to_real(2),load_average.val);
+    t->recent_cpu.val = add_x_and_y(multiply_x_by_y(divide_x_by_y(semi_load, add_x_and_y(semi_load, convert_int_to_real(1))),old_cpu),
+                                    convert_int_to_real(t->nice));
+}
+
 
 
 /* Idle thread.  Executes when no other thread is ready to run.
@@ -514,6 +557,8 @@ init_thread (struct thread *t, const char *name, int priority)
   t->effective_priority = priority;
   t->waits_for = NULL;
   t->magic = THREAD_MAGIC;
+  t->nice = 0 ;
+  t->recent_cpu.val = 0;
   list_init(&t->acquired_locks);
   old_level = intr_disable ();
   list_insert_ordered(&all_list, &t->allelem, less, NULL);
