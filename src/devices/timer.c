@@ -7,6 +7,7 @@
 #include "threads/interrupt.h"
 #include "threads/synch.h"
 #include "threads/thread.h"
+#include <list.h>
 
 /* See [8254] for hardware details of the 8254 timer chip. */
 
@@ -208,18 +209,8 @@ timer_interrupt(struct intr_frame *args UNUSED) {
             enum intr_level old_level = intr_disable();
             thread_foreach(calc_priority,NULL); // to update priority for all threads
             intr_set_level(old_level);
-//            list_sort(&ready_list,(list_less_func *)less,NULL) ;
-//            bool yield = false ;
-//            old_level = intr_disable();
-//            struct thread* curr = thread_current();
-//            if(!list_empty(&ready_list) && curr->priority<list_entry(list_front(&ready_list), struct thread, elem)->priority)
-//            yield = true;
-//            intr_set_level (old_level);
-//            if(yield){
-//                thread_yield();
-//            }
+//            sorting_ready_list_after_modify_priority();
         }
-
     }
     struct list_elem *e;
 

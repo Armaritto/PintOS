@@ -374,18 +374,21 @@ thread_set_nice (int nice UNUSED)
 {
     bool yield = false;
     enum intr_level old_level = intr_disable();
-
-    thread_current()->nice = nice ;
-
     struct thread* curr = thread_current();
     curr->nice = nice;
     calc_priority(curr);
-    if(!list_empty(&ready_list) && curr->priority<list_entry(list_front(&ready_list), struct thread, elem)->priority)
-    yield = true;
-    intr_set_level (old_level);
-    if(yield){
-        thread_yield();
+    if(!list_empty (&ready_list)) {
+        struct thread *topThread = list_entry(list_front(&ready_list), struct thread, elem);
+        if (curr->effective_priority < topThread->effective_priority)
+            yield = true;
     }
+
+    intr_set_level (old_level);
+
+    if (yield)
+        thread_yield ();
+
+
 }
 
 
@@ -420,7 +423,7 @@ calc_priority(struct thread* t)
     t->effective_priority = convert_real_to_int(
             subtract_y_from_x(
                     convert_int_to_real(PRI_MAX),
-                    add_x_and_y(divide_x_by_y(t->recent_cpu.val, convert_int_to_real(4)), divide_m_by_n(t->nice,2))));
+                    add_x_and_y(divide_x_by_y(t->recent_cpu.val, convert_int_to_real(4)), multiply_m_by_n(t->nice,2))));
 }
 // to increase recent cpu for the running thread by 1
 void
@@ -449,6 +452,14 @@ calc_recent_cpu_eq(struct thread *t)
     t->recent_cpu.val = add_x_and_y(multiply_x_by_y(divide_x_by_y(semi_load, add_x_and_y(semi_load, convert_int_to_real(1))),old_cpu),
                                     convert_int_to_real(t->nice));
 }
+void
+sorting_ready_list_after_modify_priority()
+{
+    if(list_empty(&ready_list))
+        return;
+    list_sort(&ready_list,(list_less_func *) max_priority,NULL) ;
+}
+
 
 
 
@@ -541,8 +552,17 @@ init_thread (struct thread *t, const char *name, int priority)
   t->effective_priority = priority;
   t->waits_for = NULL;
   t->magic = THREAD_MAGIC;
-  t->nice = 0 ;
-  t->recent_cpu.val = 0;
+  if(thread_mlfqs){
+      if(t==initial_thread){
+          t->nice = 0 ;
+          t->recent_cpu.val=0;
+          t->effective_priority = PRI_MAX;
+      } else{
+          t->nice =thread_get_nice() ;
+          t->recent_cpu.val = thread_get_recent_cpu();
+          calc_priority(t);
+      }
+  }
   list_init(&t->acquired_locks);
   old_level = intr_disable ();
   list_insert_ordered(&all_list, &t->allelem, less, NULL);

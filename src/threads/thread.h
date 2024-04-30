@@ -151,4 +151,5 @@ void calc_priority(struct thread *t );
 void calc_cpu(struct thread* t);
 void calc_load_average() ;
 void calc_recent_cpu_eq(struct thread *t) ;
+void sorting_ready_list_after_modify_priority();
 #endif /* threads/thread.h */
