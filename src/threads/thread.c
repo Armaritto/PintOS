@@ -420,6 +420,10 @@ thread_get_recent_cpu (void)
 void
 calc_priority(struct thread* t)
 {
+    if(t == idle_thread){
+        t->effective_priority =0 ;
+        return;
+    }
     t->effective_priority = convert_real_to_int(
             subtract_y_from_x(
                     convert_int_to_real(PRI_MAX),
@@ -447,6 +451,8 @@ calc_load_average()
 void
 calc_recent_cpu_eq(struct thread *t)
 {
+    if(t == idle_thread)
+        return;
     int32_t old_cpu = t->recent_cpu.val ;
     int32_t semi_load = multiply_x_by_y(convert_int_to_real(2),load_average.val);
     t->recent_cpu.val = add_x_and_y(multiply_x_by_y(divide_x_by_y(semi_load, add_x_and_y(semi_load, convert_int_to_real(1))),old_cpu),
