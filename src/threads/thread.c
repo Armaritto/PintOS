@@ -104,6 +104,11 @@ void thread_init (){
   init_thread (initial_thread, "main", PRI_DEFAULT);
   initial_thread->status = THREAD_RUNNING;
   initial_thread->tid = allocate_tid ();
+  if(thread_mlfqs){
+      thread_current()->nice = 0 ;
+      thread_current()->recent_cpu.val = 0;
+  }
+
 }
 
 
@@ -463,7 +468,7 @@ sorting_ready_list_after_modify_priority()
 {
     if(list_empty(&ready_list))
         return;
-    list_sort(&ready_list,(list_less_func *) max_priority,NULL) ;
+    list_sort(&ready_list,(list_less_func *) less,NULL) ;
 }
 
 
@@ -558,17 +563,17 @@ init_thread (struct thread *t, const char *name, int priority)
   t->effective_priority = priority;
   t->waits_for = NULL;
   t->magic = THREAD_MAGIC;
-  if(thread_mlfqs){
-      if(t==initial_thread){
-          t->nice = 0 ;
-          t->recent_cpu.val=0;
-          t->effective_priority = PRI_MAX;
-      } else{
-          t->nice =thread_get_nice() ;
-          t->recent_cpu.val = thread_get_recent_cpu();
-          calc_priority(t);
-      }
-  }
+//  if(thread_mlfqs){
+//      if(t==initial_thread){
+//          t->nice = 0 ;
+//          t->recent_cpu.val=0;
+//          t->effective_priority = PRI_MAX;
+//      } else{
+//          t->nice =thread_get_nice() ;
+//          t->recent_cpu.val = thread_get_recent_cpu();
+//          calc_priority(t);
+//      }
+//  }
   list_init(&t->acquired_locks);
   old_level = intr_disable ();
   list_insert_ordered(&all_list, &t->allelem, less, NULL);
