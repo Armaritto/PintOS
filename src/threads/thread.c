@@ -464,6 +464,14 @@ init_thread (struct thread *t, const char *name, int priority)
   t->priority = priority;
   t->magic = THREAD_MAGIC;
 
+  sema_init(&t->waitChildLoading, 0);
+  sema_init(&t->waitChildExecution,0);
+  list_init(&t->child_list);
+  list_init(&t->file_list);
+  t->parent = running_thread();
+  t->childState = -2;
+  t->fileDirectory = 2;
+
   old_level = intr_disable ();
   list_push_back (&all_list, &t->allelem);
   intr_set_level (old_level);
