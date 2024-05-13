@@ -28,7 +28,7 @@ int wait(int pid);
 bool create (const char *file, unsigned initial_size);
 bool remove (const char *file);
 int open (const char *file);
-int filesize (int fd);
+int file_size (int fd);
 int read (int fd, void *buffer, unsigned size);
 int write (int fd, const void *buffer, unsigned size);
 void seek (int fd, unsigned position);
@@ -116,7 +116,7 @@ static void syscall_handler(struct intr_frame *f) {
             f->eax = open(file_name);
             break;
 
-        case SYS_FILESIZE: // One parameter
+        case SYS_FILESIZE:// One parameter
             validate_address(esp + 4);
             fd = *((uint32_t *)esp + 1);
             f->eax = file_size(fd);
@@ -217,7 +217,7 @@ int open (const char *file){
 return 0;
 }
 
-int filesize (int fd){
+int file_size (int fd){
 // armia
 return 0;
 }
