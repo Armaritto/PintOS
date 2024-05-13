@@ -1,7 +1,7 @@
 #include "userprog/syscall.h"
 #include <stdio.h>
 #include <syscall-nr.h>
-#include "threads/interruaddress.h"
+#include "threads/interrpt.h"
 #include "threads/thread.h"
 #include "userprog/process.h"
 #include "threads/vaddr.h"
