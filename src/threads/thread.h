@@ -90,6 +90,17 @@ struct thread
     int priority;                       /* Priority. */
     struct list_elem allelem;           /* List element for all threads list. */
 
+   struct thread* parent;
+   struct list child_list;
+   struct list file_list;
+   struct list_elem child_elem;
+   struct file* execFile;
+   int childState;
+   int fileDirectory;
+   bool createdSucc;
+   struct semaphore waitChildExecution;
+   struct semaphore waitChildLoading;
+
     /* Shared between thread.c and synch.c. */
     struct list_elem elem;              /* List element. */
 
@@ -101,6 +112,14 @@ struct thread
     /* Owned by thread.c. */
     unsigned magic;                     /* Detects stack overflow. */
   };
+
+
+struct opened_file{
+   int fileDescriptor;
+   struct file* ptr;
+   struct list_elem elem;
+};
+
 
 /* If false (default), use round-robin scheduler.
    If true, use multi-level feedback queue scheduler.
