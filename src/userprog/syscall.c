@@ -159,34 +159,32 @@ syscall_handler(struct intr_frame *f){
     }
 }
 
-
-/// System call to shut down the system and halt the OS
-void halt(void)
-{
+/* halt the OS */
+void 
+halt(void){
     shutdown_power_off();
 }
 
-
-/// system call for exiting myself and if i happened to have a parent then i'll set my parent's childStatus field to the status that i've terminated on
-void exit(int status)
-{
-    struct thread *cur = thread_current()->parent;
+/* Exit and set the parent.child state to your state provided that you have parent */
+void 
+exit(int status){
+    struct thread *current = thread_current()->parent;
     printf("%s: exit(%d)\n", thread_current()->name, status);
-    if (cur)
-        cur->childState = status;
+    if (current)
+        current->childState = status;
     thread_exit();
 }
 
 
-/// just call process_execute function and the process that will run this command line will be return
-tid_t exec(char *cmd_line)
-{
+/* create a process and make it execute and return it's TID */
+tid_t 
+exec(char *cmd_line){
     return process_execute(cmd_line);
 }
 
-/// Waits for a child process pid and retrieves the child's exit status, and this logic is done by process_wait function
-int wait(int pid)
-{
+/* parent waits for the child to finish and return it's status */
+int 
+wait(int pid){
     return process_wait(pid);
 }
 
