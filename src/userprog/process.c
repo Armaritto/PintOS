@@ -17,16 +17,16 @@
 #include "threads/palloc.h"
 #include "threads/thread.h"
 #include "threads/vaddr.h"
+#define STACK_SIZE 0x1000
 
 static thread_func start_process NO_RETURN;
-static bool load(const char *cmdline, void (**eip)(void), void **esp);
-
+static bool load(const char *file_name, void (**eip)(void), void **esp);
 tid_t process_execute(const char *file_name)
 {
     char *fn_copy;
     tid_t tid;
     char *executableName; // pointer to the extracted executable name from file_name
-    char *next;           // used in strtok_r function
+    char *rest_of_path ; //it used as saved para in strtok_r
 
     /* Make a copy of FILE_NAME.
        Otherwise there's a race between the caller and load(). */
@@ -46,7 +46,7 @@ tid_t process_execute(const char *file_name)
     strlcpy(executableName, file_name, PGSIZE);
     //sed to tokenize the string based on whitespace
     //and the first token (executable name) is stored in name
-    executableName = strtok_r(executableName, " ", &next);
+    executableName = strtok_r(executableName, " ", &rest_of_path);
 
     /* Create a new thread to execute FILE_NAME. */
     tid = thread_create(executableName, PRI_DEFAULT, start_process, fn_copy);
@@ -296,7 +296,7 @@ struct Elf32_Phdr
 #define PF_W 2 /* Writable. */
 #define PF_R 4 /* Readable. */
 
-static bool setup_stack(void **esp);
+static bool setup_stack(void **esp , const char *all_path );
 static bool validate_segment(const struct Elf32_Phdr *, struct file *);
 static bool load_segment(struct file *file, off_t ofs, uint8_t *upage,
                          uint32_t read_bytes, uint32_t zero_bytes,
@@ -330,17 +330,17 @@ bool load(const char *file_name, void (**eip)(void), void **esp)
         goto done;
     process_activate();
 
-    char *token, *next;
-    token = palloc_get_page(0);
-    if (token == NULL)
+    char *actual_file_name, *rest_of_path;
+    actual_file_name = palloc_get_page(0);
+    if (actual_file_name == NULL)
     {
         goto done;
     }
-    strlcpy(token, file_name, PGSIZE);
-    token = strtok_r(token, " ", &next);
+    strlcpy(actual_file_name, file_name, PGSIZE);
+    actual_file_name = strtok_r(actual_file_name, " ", &rest_of_path);
 
     /* Open executable file. */
-    file = filesys_open(token);
+    file = filesys_open(actual_file_name);
     if (file == NULL)
     {
         printf("load: %s: open failed\n", file_name);
@@ -416,61 +416,9 @@ bool load(const char *file_name, void (**eip)(void), void **esp)
     }
 
     /* Set up stack. */
-    if (!setup_stack(esp))
+    if (!setup_stack(esp , file_name))
         goto done;
-
-    ////////////////////////////
-
-    char *tokenn = file_name;
-    char *nextt;
-    int argc = 0;
-    int *argv = calloc(25, sizeof(int));
-
-    // push the addresses of each argument
-    for (tokenn = strtok_r(file_name, " ", &nextt); tokenn != NULL; tokenn = strtok_r(NULL, " ", &nextt))
-    {
-        *esp -= (strlen(tokenn) + 1);   // take null char into consideration
-        memcpy(*esp, tokenn, strlen(tokenn) + 1);
-        argv[argc++] = *esp;
-        ASSERT(argc < 25);
-    }
-
-    // align the stack pointer by adding null bytes ('\0') until it becomes a multiple of 4
-    while ((int)*esp % 4 != 0)
-    {
-        *esp -= 1; // one byte until it is a multiple of 4
-        char c = '\0';
-        memcpy(*esp, &c, 1);
-    }
-
-    int x = 0;
-    *esp -= sizeof(int);
-    memcpy(*esp, &x, sizeof(int));
-
-    // push the address of every argument from right to left (Yes, even the first argument)
-    for (int i = argc - 1; i >= 0; i--)
-    {
-        *esp -= sizeof(int);
-        memcpy(*esp, &argv[i], sizeof(int));
-    }
-
-    // push pointer to the pointer of the first argument in the stack
-    *esp -= sizeof(int);
-    int firstArg = *esp + sizeof(int);
-    memcpy(*esp, &firstArg, sizeof(int));
-
-    // push argc
-    *esp -= sizeof(int);
-    memcpy(*esp, &argc, sizeof(int));
-
-// push fake return zero as explained
-    *esp = *esp - sizeof(int);
-    memcpy(*esp, &x, sizeof(int));
-
-    free(argv);
-
-    palloc_free_page(token);
-
+    palloc_free_page(actual_file_name);
     /* Start address. */
     *eip = (void (*)(void))ehdr.e_entry;
     success = true;
@@ -590,19 +538,62 @@ load_segment(struct file *file, off_t ofs, uint8_t *upage,
 /* Create a minimal stack by mapping a zeroed page at the top of
    user virtual memory. */
 static bool
-setup_stack(void **esp)
+setup_stack (void **esp , const char *all_path) // add parameter all path to be parsed into stack
 {
     uint8_t *kpage;
     bool success = false;
 
-    kpage = palloc_get_page(PAL_USER | PAL_ZERO);
+    kpage = palloc_get_page (PAL_USER | PAL_ZERO);
     if (kpage != NULL)
     {
-        success = install_page(((uint8_t *)PHYS_BASE) - PGSIZE, kpage, true);
-        if (success)
-            *esp = PHYS_BASE;
+        success = install_page (((uint8_t *) PHYS_BASE) - PGSIZE, kpage, true);
+        if (success){
+            *esp = PHYS_BASE; // to start set up stack pointer to
+            char *arg = all_path; // argument to put into stack
+            char *rest_of_args ; // rest of all arguments before parsing
+            char *address[100] ; // to keep track of addresses of arguments
+            int number_of_args = 0 ;
+            arg = strtok_r((char *)all_path , " " , &rest_of_args );
+            do {
+                *esp -= strlen(arg) + 1 ;  // to move the stack pointer with size of arg and 1 for null pointer
+                memcpy(*esp , arg , strlen(arg)+1);
+                address[number_of_args] = *esp ;
+                number_of_args++;      // increase number of arg by 1
+                arg = strtok_r(rest_of_args , " " , &rest_of_args);
+            } while (arg != NULL);
+            int word_align = (size_t) *esp % 4 ;
+            while(word_align != 0){   // to make a word align by 4 bytes
+                *esp -= 1 ;
+                char null_pt = '\0' ;
+                memcpy(*esp ,&null_pt , 1) ;
+                word_align--;
+            }
+
+            address[number_of_args] = 0 ; // null argument
+            for(int j = number_of_args ; j >= 0 ;--j){ // put address of all arguments in reverse order
+                *esp -= sizeof(char *);
+                memcpy(*esp,&address[j], sizeof(char *));
+            }
+
+            char *address_of_argv = *esp; // base address of all address[0]
+            *esp -= sizeof(char **);
+            memcpy(*esp ,&address_of_argv, sizeof(char **));
+
+            *esp -= sizeof(int); // to push number of argument in the stack
+            memcpy(*esp , &number_of_args , sizeof(int));
+
+            void *return_address = 0;
+            *esp -= sizeof(void*) ; // to push null return at the top of the stack
+            memcpy(*esp , &return_address , sizeof(void *));
+            /* already all arguments in the stack */
+//            hexDump("memory : ",*esp ,50,1 );
+
+            if ((uint32_t *) esp < ((uint32_t *) PHYS_BASE) - STACK_SIZE)// check for overFlow
+                success = false;
+
+        }
         else
-            palloc_free_page(kpage);
+            palloc_free_page (kpage);
     }
     return success;
 }
