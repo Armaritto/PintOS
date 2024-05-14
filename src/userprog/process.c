@@ -25,35 +25,30 @@ tid_t process_execute(const char *file_name)
 {
     char *fn_copy;
     tid_t tid;
-    char *executableName; // pointer to the extracted executable name from file_name
+    char *real_file_name; // to get first arg as file name
     char *rest_of_path ; //it used as saved para in strtok_r
 
     /* Make a copy of FILE_NAME.
        Otherwise there's a race between the caller and load(). */
     fn_copy = palloc_get_page(0);
-
-    executableName = palloc_get_page(0);
-
-    if (fn_copy == NULL || executableName == NULL)
+    real_file_name = palloc_get_page(0);
+    if (fn_copy == NULL || real_file_name == NULL)
     {
         palloc_free_page(fn_copy);
-        palloc_free_page(executableName);
+        palloc_free_page(real_file_name);
         return TID_ERROR;
     }
-
     strlcpy(fn_copy, file_name, PGSIZE);
+    strlcpy(real_file_name, file_name, PGSIZE);
 
-    strlcpy(executableName, file_name, PGSIZE);
-    //sed to tokenize the string based on whitespace
-    //and the first token (executable name) is stored in name
-    executableName = strtok_r(executableName, " ", &rest_of_path);
+    real_file_name = strtok_r(real_file_name, " ", &rest_of_path);
 
     /* Create a new thread to execute FILE_NAME. */
-    tid = thread_create(executableName, PRI_DEFAULT, start_process, fn_copy);
+    tid = thread_create(real_file_name, PRI_DEFAULT, start_process, fn_copy);
 
     if (tid == TID_ERROR)
     {
-        palloc_free_page(executableName);
+        palloc_free_page(real_file_name);
         palloc_free_page(fn_copy);
         return TID_ERROR;
     }
@@ -61,8 +56,8 @@ tid_t process_execute(const char *file_name)
     // wait for the newly created thread to complete its initialization by calling sema_down
     sema_down(&thread_current()->waitForChildLoad);
 
-    if (executableName){
-        palloc_free_page(executableName);   //name is not NULL
+    if (real_file_name){
+        palloc_free_page(real_file_name);   //name is not NULL
     }
 
     if (!thread_current()->isCreated){
