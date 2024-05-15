@@ -19,6 +19,8 @@
   <component name="ChangeListManager">
     <list default="true" id="10e37a65-b456-4875-8adf-48716638719d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/thread.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/thread.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/Markdowns/Files.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userprog/syscall.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/syscall.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

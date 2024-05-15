@@ -119,7 +119,7 @@ struct thread
 /* for dealing with file */
 struct opened_file{
     int fd;
-    struct file* ptr;
+    struct file* file;
     struct list_elem elem;
 };
 

@@ -168,7 +168,7 @@ void process_exit(void)
     {
         // get the last open file from the filesList and remove it from the list
         struct opened_file *opened_file = list_entry(list_pop_back(&cur->file_list), struct opened_file, elem);
-        file_close(opened_file->ptr);   // close the file associated with the open_file struct
+        file_close(opened_file->file);   // close the file associated with the open_file struct
         palloc_free_page(opened_file);   // free the memory allocated for the open_file struct
     }
 
@@ -302,14 +302,6 @@ static bool load_segment(struct file *file, off_t ofs, uint8_t *upage,
    and its initial stack pointer into *ESP.
    Returns true if successful, false otherwise. */
 
-/*
- 5ra from the internet
-  int name_length = strlen (file_name)+1;
- fn_copy = malloc (name_length);
- strlcpy(fn_copy, file_name, name_length);
- fn_copy = strtok_r (fn_copy, " ", &save_ptr);
-
-*/
 bool load(const char *file_name, void (**eip)(void), void **esp)
 {
     struct thread *t = thread_current();

@@ -17,14 +17,6 @@
 // the only global lock, that we use to avoid race condition of files
 static struct lock lock;
 
-// A struct for the file descriptor entry
-struct fd_entry
-{
-    int fd;
-    struct file *file;
-    struct list_elem elem;
-};
-
 static void syscall_handler(struct intr_frame *);
 void is_valid_address(const void *ptr);
 void halt(void);
@@ -191,9 +183,8 @@ wait(int pid){
 /// calls the file system create function to create a file with the given name and size and return true if it's created
 bool create(char *file, unsigned initial_size)
 {
-    bool signal;
     lock_acquire(&lock);
-    signal = filesys_create(file, initial_size);
+    bool signal = filesys_create(file, initial_size);
     lock_release(&lock);
     return signal;
 }
@@ -201,9 +192,8 @@ bool create(char *file, unsigned initial_size)
 /// calls the file system remove function to remove a file with the given name and return true if it's removed
 bool remove(char *file)
 {
-    bool signal;
     lock_acquire(&lock);
-    signal = filesys_remove(file);
+    bool signal = filesys_remove(file);
     lock_release(&lock);
     return signal;
 }
@@ -217,9 +207,9 @@ int open(char *file_name)
         return -1;
     }
     lock_acquire(&lock);
-    open->ptr = filesys_open(file_name);
+    open->file = filesys_open(file_name);
     lock_release(&lock);
-    if (open->ptr == NULL)
+    if (open->file == NULL)
         return -1;
     thread_current()->fileDirectory++;
     open->fd = thread_current()->fileDirectory;
@@ -230,12 +220,11 @@ int open(char *file_name)
 /// get the size of the file with the given file descriptor
 int fileSize(int fd)
 {
-    struct file *file = fd2file(fd)->ptr;
+    struct file *file = fd2file(fd)->file;
     if (file == NULL)
         return -1;
-    int fileLength;
     lock_acquire(&lock);
-    fileLength = file_length(file);
+    int fileLength = file_length(file);
     lock_release(&lock);
     return fileLength;
 }
@@ -243,7 +232,7 @@ int fileSize(int fd)
 /// change the current position of the file with the given file descriptor to the given position
 void seek(int fd, unsigned position)
 {
-    struct file *file = fd2file(fd)->ptr;
+    struct file *file = fd2file(fd)->file;
     if (file == NULL)
         return;
     lock_acquire(&lock);
@@ -254,7 +243,7 @@ void seek(int fd, unsigned position)
 /// get the current position of the file with the given file descriptor
 int tell(int fd)
 {
-    struct file *file = fd2file(fd)->ptr;
+    struct file *file = fd2file(fd)->file;
     if (file == NULL)
         return -1;
     lock_acquire(&lock);
@@ -263,19 +252,19 @@ int tell(int fd)
     return position;
 }
 
-/// close the file with the given file descriptor and remove it from the opened files list
+/// close the file remove it from the opened files list
 void close(int fd)
 {
     struct opened_file *file = fd2file(fd);
     if (file == NULL)
         return;
     lock_acquire(&lock);
-    file_close(file->ptr);
+    file_close(file->file);
     lock_release(&lock);
-    list_remove(&file->elem); //palloc_free_page(file);
+    list_remove(&file->elem);
 }
 
-/// writes (length) bytes from buffer to the open file fd.
+/// writes in stdout or in a file
 int write(int fd, void *buffer, int length)
 {
     if (fd == 1){
@@ -285,47 +274,40 @@ int write(int fd, void *buffer, int length)
         lock_release(&lock);
         return sizeActual;
     }
-    printf("<---------------------------- fd = %d ---------------------------->\n", fd);
-    struct file *file = fd2file(fd)->ptr;
-    lock_acquire(&lock);
+    //printf("<---------------------------- fd = %d ---------------------------->\n", fd);
+    else if(fd == 0 || fd == 2)
+        return -1;
+    struct file *file = fd2file(fd)->file;
     if (file == NULL)
         return -1;
-    int sizeActual = (int)file_write(file, buffer, length);
+    lock_acquire(&lock);
+    int sizeActual = file_write(file, buffer, length);
     lock_release(&lock);
     return sizeActual;
 }
 
-/// read from file or from buffer
+/// read from stdin or from file
 int read(int fd, void *buffer, int length)
 {
-    if (fd == 0)
-    {//read from keyboard
-
-        for (size_t i = 0; i < length; i++)
-        {
-            lock_acquire(&lock);// to check no write
+    if (fd == 0){
+        for (size_t i = 0; i < length; i++){
+            lock_acquire(&lock);
             ((char*)buffer)[i] = input_getc();
             lock_release(&lock);
         }
         return length;
-
     }
-    else {
-// read from file
-        struct thread* t = thread_current();
-        struct file* f = fd2file(fd)->ptr;
+    //printf("<---------------------------- fd = %d ---------------------------->\n", fd);
+    else if(fd == 1 || fd == 2)
+        return -1;
+    struct file *file = fd2file(fd)->file;
+    if (file == NULL)
+        return -1;
+    lock_acquire(&lock);
+    int signal = file_read(file,buffer,length);
+    lock_release(&lock);
+    return signal;
 
-        if (f == NULL)
-        {
-            return -1;//no opened file
-        }
-
-        int result;//the actual number of bytes be read
-        lock_acquire(&lock);
-        result = file_read(f,buffer,length);
-        lock_release(&lock);
-        return result;
-    }
 }
 
 /// convert from fd to a file object
