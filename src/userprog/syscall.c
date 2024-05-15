@@ -219,14 +219,10 @@ int open(char *file_name)
     lock_acquire(&lock);
     open->ptr = filesys_open(file_name);
     lock_release(&lock);
-
-    // if the pointer is null for any case such as no file name as such or any memory fail
-    // then return -1 to indicate that we can't open that file
     if (open->ptr == NULL)
         return -1;
-    // increment the directory to get the new index in the file directory table
-    open->fd = ++thread_current()->fileDirectory;
-    // add to the current open files
+    thread_current()->fileDirectory++;
+    open->fd = thread_current()->fileDirectory;
     list_push_back(&thread_current()->file_list, &open->elem);
     return open->fd;
 }
@@ -282,28 +278,20 @@ void close(int fd)
 /// writes (length) bytes from buffer to the open file fd.
 int write(int fd, void *buffer, int length)
 {
-    int sizeActual = 0;
-    struct thread *cur = thread_current();
-
-    if (fd == 1)
-    {
-        // writing to console by the putbuf().
+    if (fd == 1){
         lock_acquire(&lock);
         putbuf(buffer, length);
-        sizeActual = (int)length; // the console is logically infinite so all the buffer is written to stdout
+        int sizeActual = length;
         lock_release(&lock);
+        return sizeActual;
     }
-        //otherwise we have an opened file to write to, and we alrady have file_write to do that
-    else
-    {
-        // hold the file by the fd
-        struct file *f = fd2file(fd)->ptr;
-        lock_acquire(&lock);
-        if (f == NULL)
-            return -1; // no file
-        sizeActual = (int)file_write(f, buffer, length);
-        lock_release(&lock);
-    }
+    printf("<---------------------------- fd = %d ---------------------------->\n", fd);
+    struct file *file = fd2file(fd)->ptr;
+    lock_acquire(&lock);
+    if (file == NULL)
+        return -1;
+    int sizeActual = (int)file_write(file, buffer, length);
+    lock_release(&lock);
     return sizeActual;
 }
 
