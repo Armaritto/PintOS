@@ -6,6 +6,8 @@
 #include <stdint.h>
 #include "threads/synch.h"
 #include "filesys/file.h"
+#include "real.h"
+
 /* States in a thread's life cycle. */
 enum thread_status
 {
@@ -82,8 +84,18 @@ typedef int tid_t;
    ready state is on the run queue, whereas only a thread in the
    blocked state is on a semaphore wait list. */
 struct thread
-{
+  {
     /* Owned by thread.c. */
+    tid_t tid;                          /* Thread identifier. */
+    enum thread_status status;          /* Thread state. */
+    char name[16];                      /* Name (for debugging purposes). */
+    uint8_t *stack;                     /* Saved stack pointer. */
+    int priority;                       /* Priority and works in advanced schedule*/
+    int64_t end_ticks;
+    struct lock *waits_for;             /* Lock the thread is waiting for. */
+    struct list acquired_locks;         /* Locks the thread currently holds. */
+    struct list_elem allelem;           /* List element for all threads list. */
+    int effective_priority;             /* Effective priority. */
     tid_t tid;                 /* Thread identifier. */
     enum thread_status status; /* Thread state. */
     char name[16];             /* Name (for debugging purposes). */
@@ -91,6 +103,9 @@ struct thread
     int priority;              /* Priority. */
     struct list_elem allelem;  /* List element for all threads list. */
     /* Shared between thread.c and synch.c. */
+    struct list_elem elem;              /* List element. */
+    real recent_cpu ;                   /* cpu time of the thread*/
+    int nice ;                          /* nice for each thread*/
     struct list_elem elem; /* List element. */
 
     // used for process system calls i.e. halt, exec, wait, exit
@@ -113,7 +128,7 @@ struct thread
 #endif
 
     /* Owned by thread.c. */
-    unsigned magic; /* Detects stack overflow. */
+    unsigned magic;                     /* Detects stack overflow. */
 };
 
 /* for dealing with file */
@@ -127,16 +142,17 @@ struct opened_file{
    If true, use multi-level feedback queue scheduler.
    Controlled by kernel command-line option "-o mlfqs". */
 extern bool thread_mlfqs;
+extern real load_average;
 
 void thread_init(void);
 void thread_start(void);
 
 void thread_tick(void);
 void thread_print_stats(void);
-
+bool less(struct list_elem *a,struct list_elem *b, void *aux);
 typedef void thread_func(void *aux);
 tid_t thread_create(const char *name, int priority, thread_func *, void *);
-
+int threads_get_max_priority(void);
 void thread_block(void);
 void thread_unblock(struct thread *);
 
@@ -151,12 +167,20 @@ void thread_yield(void);
 typedef void thread_action_func(struct thread *t, void *aux);
 void thread_foreach(thread_action_func *, void *);
 
-int thread_get_priority(void);
-void thread_set_priority(int);
 
-int thread_get_nice(void);
-void thread_set_nice(int);
-int thread_get_recent_cpu(void);
-int thread_get_load_avg(void);
+int thread_get_priority (void);
+void thread_set_priority (int);
 
+void notifyChangeInLocksPriority(struct thread *t);
+
+
+int thread_get_nice (void);
+void thread_set_nice (int);
+int thread_get_recent_cpu (void);
+int thread_get_load_avg (void);
+void calc_priority(struct thread *t );
+void calc_cpu(struct thread* t);
+void calc_load_average() ;
+void calc_recent_cpu_eq(struct thread *t) ;
+void sorting_ready_list_after_modify_priority();
 #endif /* threads/thread.h */

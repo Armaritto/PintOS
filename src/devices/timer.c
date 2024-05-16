@@ -7,7 +7,8 @@
 #include "threads/interrupt.h"
 #include "threads/synch.h"
 #include "threads/thread.h"
-  
+#include <list.h>
+
 /* See [8254] for hardware details of the 8254 timer chip. */
 
 #if TIMER_FREQ < 19
@@ -19,7 +20,8 @@
 
 /* Number of timer ticks since OS booted. */
 static int64_t ticks;
-
+/* list of blocked threads */
+struct list blocked_threads;
 /* Number of loops per timer tick.
    Initialized by timer_calibrate(). */
 static unsigned loops_per_tick;
@@ -37,6 +39,7 @@ timer_init (void)
 {
   pit_configure_channel (0, 2, TIMER_FREQ);
   intr_register_ext (0x20, timer_interrupt, "8254 Timer");
+  list_init(&blocked_threads);
 }
 
 /* Calibrates loops_per_tick, used to implement brief delays. */
@@ -84,16 +87,35 @@ timer_elapsed (int64_t then)
   return timer_ticks () - then;
 }
 
-/* Sleeps for approximately TICKS timer ticks.  Interrupts must
-   be turned on. */
-void
-timer_sleep (int64_t ticks) 
-{
-  int64_t start = timer_ticks ();
+static bool compare_ticks(const struct list_elem *a,
+                          const struct list_elem *b,
+                          void *aux UNUSED) {
 
+    struct thread *t1 = list_entry(a, struct thread, elem);
+    struct thread *t2 = list_entry(b, struct thread, elem);
+
+    if (t1->end_ticks < t2->end_ticks)
+        return true;
+    else if (t1->end_ticks == t2->end_ticks) {
+        if (t1->effective_priority > t2->effective_priority)
+            return true;
+    }
+    return false;
+}
+
+
+/* Sleeps for approximately TICKS timer ticks.  Interrupts must be turned on. */
+void 
+timer_sleep (int64_t ticks) {
   ASSERT (intr_get_level () == INTR_ON);
-  while (timer_elapsed (start) < ticks) 
-    thread_yield ();
+
+  enum intr_level old_level = intr_disable();
+
+  thread_current() ->end_ticks = timer_ticks() + ticks;
+  list_insert_ordered(&blocked_threads, &thread_current() -> elem, compare_ticks, NULL);
+  thread_block();
+
+  intr_set_level (old_level);
 }
 
 /* Sleeps for approximately MS milliseconds.  Interrupts must be
@@ -167,11 +189,40 @@ timer_print_stats (void)
 }
 
 /* Timer interrupt handler. */
-static void
-timer_interrupt (struct intr_frame *args UNUSED)
-{
-  ticks++;
-  thread_tick ();
+static void 
+timer_interrupt(struct intr_frame *args UNUSED) {
+    ticks++;
+    thread_tick();
+    if(thread_mlfqs){// in case of advanced scheduling
+        if(thread_mlfqs){
+            enum intr_level old_level = intr_disable();
+            calc_cpu(thread_current());// to increase the recent cpu of the running thread by 1
+            intr_set_level(old_level);
+        }
+        if(timer_ticks() % TIMER_FREQ == 0){
+            enum intr_level old_level = intr_disable();
+            calc_load_average() ; // to update load average for all system
+            thread_foreach(calc_recent_cpu_eq,NULL); // to update recent cpu for all threads
+            intr_set_level(old_level);
+        }
+        if(timer_ticks() % 4 == 0){
+            enum intr_level old_level = intr_disable();
+            thread_foreach(calc_priority,NULL); // to update priority for all threads
+            intr_set_level(old_level);
+//            sorting_ready_list_after_modify_priority();
+        }
+    }
+    struct list_elem *e;
+
+    for (e = list_begin(&blocked_threads); e != list_end(&blocked_threads);) {
+        struct thread *t = list_entry(e, struct thread, elem);
+        e = list_next(e);
+
+        if (t->end_ticks <= ticks) {
+            list_remove(&t->elem);
+            thread_unblock(t);
+        }
+    }
 }
 
 /* Returns true if LOOPS iterations waits for more than one timer
