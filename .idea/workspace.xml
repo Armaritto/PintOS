@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="pintosProject" targetName="pintosProject" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="10e37a65-b456-4875-8adf-48716638719d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Installation_with_docker.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/Markdowns/priority_scheduler.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/grade.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/priority_tests_names.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/real.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/threads/real.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AUTHORS" beforeDir="false" afterPath="$PROJECT_DIR$/AUTHORS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Installation.md" beforeDir="false" afterPath="$PROJECT_DIR$/Installation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/doc/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/44bsd.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/44bsd.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/doc/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/bibliography.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/bibliography.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/debug.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/debug.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/devel.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/devel.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doc.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/doc.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/filesys.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/filesys.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/filesys.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/doc/filesys.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/installation.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/installation.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/intro.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/intro.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/license.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/license.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/localcvsinstructions.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/localcvsinstructions.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/localsettings.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/localsettings.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/pintos-t2h.init" beforeDir="false" afterPath="$PROJECT_DIR$/doc/pintos-t2h.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/pintos.css" beforeDir="false" afterPath="$PROJECT_DIR$/doc/pintos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/pintos.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/pintos.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/reference.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/reference.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/sample.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/doc/sample.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/standards.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/standards.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/texi2html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/texi2html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/texinfo.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/texinfo.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/threads.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/threads.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/threads.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/doc/threads.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/userprog.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/userprog.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/userprog.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/doc/userprog.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/vm.texi" beforeDir="false" afterPath="$PROJECT_DIR$/doc/vm.texi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/vm.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/doc/vm.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guides/CSCI 350 - Pintos Guide.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/guides/CSCI 350 - Pintos Guide.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guides/PintOS Official Document.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/guides/PintOS Official Document.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guides/SIGCSE2009-Pintos.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/guides/SIGCSE2009-Pintos.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guides/The Pintos Instructional Operating System Kernel.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/guides/The Pintos Instructional Operating System Kernel.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/pintos_components.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/pintos_components.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/8254.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/8259A.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/ata-3-std.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/elf.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/feedback.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/freevga.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/glossary.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/hardovr.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/hardrec.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/home.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/license.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/llintro.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/256left.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/256left.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/256right.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/256right.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/attrreg.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/char.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/colorreg.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/crtcreg.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/extreg.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/graphreg.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/license.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/paging.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/paging.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/portidx.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/seqpack.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/seqpack.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/seqplanr.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/seqplanr.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/seqreg.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/textcur.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/vga.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/vgacrtc.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/vgadac.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/vgafunc.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/vgafx.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/vgamem.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/vgareg.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/vgargidx.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/vgaseq.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/vgatext.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/virtual.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vga/virtual.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/freevga/vtiming.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/abnt-keypad.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/amstrad-s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/amstrad.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/compaq_easy_access.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/compaq_unkn-s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/compaq_unkn.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/ibm_rapid_access.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/ibm_rapid_access_II.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/imb5576-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/jp106-with-scancodes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/jp106.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/jplaptop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/lk201-k.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/lk411-left.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/lk411-right.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/lk411-s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/lk411.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/logitech-access.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/logitech-internet-s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/logitech-internet.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/m24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/m24kbd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/ms_office.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/ncr-s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/nokia-left.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/nokia-right.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/nokia-s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/nokia-top.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/nokia.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/samsung-s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/samsung.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-12.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-13.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-14.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes-9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/scancodes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/sk2500.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/table.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/telerate-s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/telerate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/victor-s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/victor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/xt-at-switch.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/xtkbd-s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/xtkbd.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/kbd/yahoo912.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/mc146818a.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/pc16550d.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-4.1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-i386-4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/ch4.eheader.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/ch4.intro.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/ch4.reloc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/ch4.sheader.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/ch4.strtab.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/ch4.symtab.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/ch5.dynamic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/ch5.intro.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/ch5.pheader.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/ch5.prog_loading.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/contents.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/contents.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/init_example.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/next.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/previous.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/revision.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/specs/sysv-abi-update.html/warning.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/src/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Make.config" beforeDir="false" afterPath="$PROJECT_DIR$/src/Make.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Makefile.build" beforeDir="false" afterPath="$PROJECT_DIR$/src/Makefile.build" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Makefile.kernel" beforeDir="false" afterPath="$PROJECT_DIR$/src/Makefile.kernel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Makefile.userprog" beforeDir="false" afterPath="$PROJECT_DIR$/src/Makefile.userprog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/block.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/block.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/block.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/block.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/ide.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/ide.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/ide.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/ide.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/input.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/input.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/input.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/input.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/intq.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/intq.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/intq.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/intq.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/kbd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/kbd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/kbd.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/kbd.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/partition.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/partition.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/partition.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/partition.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/pit.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/pit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/pit.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/pit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/rtc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/rtc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/rtc.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/rtc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/serial.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/serial.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/serial.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/serial.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/shutdown.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/shutdown.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/shutdown.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/shutdown.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/speaker.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/speaker.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/speaker.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/speaker.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/timer.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/timer.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/timer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/timer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/vga.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/vga.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/vga.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/vga.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/bubsort.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/bubsort.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/cat.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/cat.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/cmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/cmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/cp.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/cp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/echo.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/echo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/halt.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/halt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/hex-dump.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/hex-dump.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/lib/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/lib/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/lib/user/.dummy" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/lib/user/.dummy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/lib/user/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/lib/user/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/lineup.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/lineup.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/ls.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/ls.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/matmult.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/matmult.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/mcat.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/mcat.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/mcp.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/mcp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/mkdir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/mkdir.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/pwd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/recursor.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/recursor.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/rm.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/rm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/shell.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/shell.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/Make.vars" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/Make.vars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/directory.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/directory.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/directory.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/directory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/file.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/file.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/file.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/file.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/filesys.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/filesys.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/filesys.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/filesys.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/free-map.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/free-map.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/free-map.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/free-map.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/fsutil.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/fsutil.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/fsutil.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/fsutil.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/inode.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/inode.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/inode.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/inode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filesys/off_t.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/filesys/off_t.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/arithmetic.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/arithmetic.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/ctype.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/ctype.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/debug.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/debug.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/debug.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/debug.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/inttypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/inttypes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/kernel/bitmap.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/kernel/bitmap.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/kernel/bitmap.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/kernel/bitmap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/kernel/console.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/kernel/console.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/kernel/console.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/kernel/console.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/kernel/debug.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/kernel/debug.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/kernel/hash.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/kernel/hash.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/kernel/hash.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/kernel/hash.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/kernel/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/kernel/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/kernel/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/kernel/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/kernel/stdio.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/kernel/stdio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/limits.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/limits.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/packed.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/packed.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/random.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/random.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/random.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/random.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/round.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/round.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/stdarg.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stdarg.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/stdbool.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stdbool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/stddef.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stddef.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/stdint.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stdint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/stdio.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stdio.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/stdio.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stdio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/stdlib.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stdlib.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/stdlib.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stdlib.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/string.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/string.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/string.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/string.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/syscall-nr.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/syscall-nr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/user/console.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/user/console.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/user/debug.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/user/debug.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/user/entry.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/user/entry.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/user/stdio.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/user/stdio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/user/syscall.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/user/syscall.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/user/syscall.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/user/syscall.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/user/user.lds" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/user/user.lds" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/ustar.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/ustar.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/ustar.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/ustar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-big-endian.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-big-endian.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-gdbstub-ENN.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-gdbstub-ENN.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-jitter.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-jitter.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-ms-extensions.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-ms-extensions.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-namespace.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-namespace.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-page-fault-segv.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-page-fault-segv.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-paranoia.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-paranoia.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-solaris-link.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-solaris-link.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-solaris-tty.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-solaris-tty.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.2.6-triple-fault.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.2.6-triple-fault.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.6.11-banner-stderr.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.6.11-banner-stderr.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.6.11-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.6.11-build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.6.11-jitter-plus-segv.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.6.11-jitter-plus-segv.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.6.11-link-tinfo.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.6.11-link-tinfo.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.6.2-banner-stderr.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.6.2-banner-stderr.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.6.2-block-device-check.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.6.2-block-device-check.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.6.2-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.6.2-build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.6.2-jitter-plus-segv.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.6.2-jitter-plus-segv.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.6.2-link-tinfo.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.6.2-link-tinfo.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/bochs-2.6.2-xrandr-pkgconfig.patch" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/bochs-2.6.2-xrandr-pkgconfig.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/gcc-3.3.6-cross-howto" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/gcc-3.3.6-cross-howto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/gdb-macros" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/gdb-macros" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/Algorithm/Diff.pm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/Algorithm/Diff.pm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/Make.tests" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/Make.tests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/arc4.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/arc4.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/arc4.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/arc4.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/arc4.pm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/arc4.pm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/cksum.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/cksum.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/cksum.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/cksum.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/cksum.pm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/cksum.pm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/Grading.no-vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/Grading.no-vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/Grading.with-vm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/Grading.with-vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/Make.tests" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/Make.tests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/Rubric" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/Rubric" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/child-syn-read.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/child-syn-read.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/child-syn-wrt.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/child-syn-wrt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/full.inc" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/full.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/lg-create.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/lg-create.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/lg-create.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/lg-create.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/lg-full.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/lg-full.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/lg-full.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/lg-full.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/lg-random.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/lg-random.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/lg-random.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/lg-random.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/lg-seq-block.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/lg-seq-block.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/lg-seq-block.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/lg-seq-block.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/lg-seq-random.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/lg-seq-random.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/lg-seq-random.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/lg-seq-random.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/random.inc" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/random.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/seq-block.inc" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/seq-block.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/seq-random.inc" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/seq-random.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/sm-create.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/sm-create.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/sm-create.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/sm-create.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/sm-full.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/sm-full.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/sm-full.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/sm-full.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/sm-random.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/sm-random.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/sm-random.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/sm-random.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/sm-seq-block.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/sm-seq-block.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/sm-seq-block.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/sm-seq-block.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/sm-seq-random.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/sm-seq-random.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/sm-seq-random.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/sm-seq-random.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/syn-read.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/syn-read.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/syn-read.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/syn-read.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/syn-read.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/syn-read.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/syn-remove.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/syn-remove.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/syn-remove.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/syn-remove.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/syn-write.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/syn-write.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/syn-write.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/syn-write.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/base/syn-write.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/base/syn-write.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/create.inc" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/create.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/Make.tests" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/Make.tests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/Rubric.functionality" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/Rubric.functionality" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/Rubric.persistence" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/Rubric.persistence" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/Rubric.robustness" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/Rubric.robustness" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/child-syn-rw.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/child-syn-rw.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-empty-name-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-empty-name-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-empty-name.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-empty-name.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-empty-name.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-empty-name.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mk-tree-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mk-tree-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mk-tree.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mk-tree.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mk-tree.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mk-tree.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mkdir-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mkdir-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mkdir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mkdir.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mkdir.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-mkdir.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-open-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-open-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-open.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-open.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-open.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-open.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-over-file-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-over-file-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-over-file.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-over-file.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-over-file.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-over-file.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-cwd-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-cwd-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-cwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-cwd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-cwd.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-cwd.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-parent-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-parent-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-parent.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-parent.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-parent.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-parent.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-root-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-root-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-root.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-root.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-root.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-root.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-tree-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-tree-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-tree.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-tree.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-tree.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rm-tree.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rmdir-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rmdir-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rmdir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rmdir.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rmdir.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-rmdir.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-under-file-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-under-file-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-under-file.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-under-file.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-under-file.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-under-file.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-vine-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-vine-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-vine.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-vine.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/dir-vine.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/dir-vine.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-create-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-create-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-create.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-create.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-create.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-create.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-dir-lg-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-dir-lg-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-dir-lg.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-dir-lg.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-dir-lg.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-dir-lg.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-dir.inc" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-dir.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-file-size-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-file-size-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-file-size.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-file-size.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-file-size.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-file-size.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-lg-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-lg-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-lg.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-lg.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-lg.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-lg.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-sm-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-sm-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-sm.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-sm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-sm.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-root-sm.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-lg-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-lg-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-lg.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-lg.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-lg.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-lg.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-sm-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-sm-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-sm.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-sm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-sm.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq-sm.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq.inc" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-seq.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-sparse-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-sparse-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-sparse.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-sparse.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-sparse.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-sparse.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-tell-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-tell-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-tell.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-tell.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-tell.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-tell.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-two-files-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-two-files-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-two-files.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-two-files.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/grow-two-files.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/grow-two-files.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/mk-tree.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/mk-tree.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/mk-tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/mk-tree.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/syn-rw-persistence.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/syn-rw-persistence.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/syn-rw.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/syn-rw.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/syn-rw.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/syn-rw.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/syn-rw.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/syn-rw.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/extended/tar.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/extended/tar.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/seq-test.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/seq-test.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/filesys/seq-test.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/filesys/seq-test.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/internal/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/internal/list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/internal/stdio.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/internal/stdio.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/internal/stdlib.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/internal/stdlib.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/lib.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/lib.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/lib.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/lib.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/lib.pm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/lib.pm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/main.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/make-grade" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/make-grade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/random.pm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/random.pm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/tests.pm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/tests.pm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/Grading" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/Grading" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/Make.tests" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/Make.tests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/Rubric.alarm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/Rubric.alarm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/Rubric.mlfqs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/Rubric.mlfqs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/Rubric.priority" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/Rubric.priority" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-multiple.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-multiple.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-negative.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-negative.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-negative.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-negative.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-priority.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-priority.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-priority.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-priority.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-simultaneous.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-simultaneous.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-simultaneous.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-simultaneous.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-single.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-single.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-wait.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-wait.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-zero.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-zero.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm-zero.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm-zero.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/alarm.pm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/alarm.pm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-block.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-block.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-block.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-block.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-fair-2.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-fair-2.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-fair-20.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-fair-20.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-fair.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-fair.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-1.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-1.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-1.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-60.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-60.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-60.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-60.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-avg.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-avg.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-avg.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-load-avg.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-nice-10.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-nice-10.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-nice-2.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-nice-2.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-recent-1.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-recent-1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs-recent-1.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs-recent-1.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/mlfqs.pm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/mlfqs.pm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-change.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-change.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-change.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-change.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-condvar.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-condvar.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-condvar.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-condvar.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-chain.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-chain.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-chain.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-chain.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-lower.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-lower.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-lower.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-lower.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-multiple.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-multiple.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-multiple.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-multiple.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-multiple2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-multiple2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-multiple2.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-multiple2.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-nest.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-nest.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-nest.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-nest.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-one.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-one.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-one.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-one.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-sema.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-sema.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-donate-sema.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-donate-sema.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-fifo.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-fifo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-fifo.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-fifo.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-preempt.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-preempt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-preempt.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-preempt.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-sema.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-sema.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/priority-sema.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/priority-sema.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/tests.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/tests.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/threads/tests.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/threads/tests.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/Grading" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/Grading" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/Make.tests" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/Make.tests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/Rubric.functionality" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/Rubric.functionality" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/Rubric.robustness" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/Rubric.robustness" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/args-dbl-space.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/args-dbl-space.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/args-many.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/args-many.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/args-multiple.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/args-multiple.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/args-none.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/args-none.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/args-single.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/args-single.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/args.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/args.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-jump.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-jump.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-jump.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-jump.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-jump2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-jump2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-jump2.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-jump2.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-read.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-read.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-read.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-read.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-read2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-read2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-read2.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-read2.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-write.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-write.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-write.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-write.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-write2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-write2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/bad-write2.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/bad-write2.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/boundary.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/boundary.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/boundary.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/boundary.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/child-bad.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/child-bad.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/child-close.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/child-close.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/child-rox.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/child-rox.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/child-simple.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/child-simple.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/close-bad-fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/close-bad-fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/close-bad-fd.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/close-bad-fd.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/close-normal.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/close-normal.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/close-normal.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/close-normal.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/close-stdin.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/close-stdin.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/close-stdin.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/close-stdin.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/close-stdout.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/close-stdout.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/close-stdout.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/close-stdout.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/close-twice.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/close-twice.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/close-twice.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/close-twice.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-bad-ptr.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-bad-ptr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-bad-ptr.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-bad-ptr.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-bound.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-bound.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-bound.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-bound.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-empty.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-empty.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-empty.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-empty.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-exists.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-exists.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-exists.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-exists.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-long.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-long.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-long.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-long.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-normal.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-normal.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-normal.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-normal.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-null.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-null.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/create-null.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/create-null.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-arg.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-arg.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-arg.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-arg.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-bad-ptr.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-bad-ptr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-bad-ptr.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-bad-ptr.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-bound-2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-bound-2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-bound-2.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-bound-2.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-bound-3.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-bound-3.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-bound-3.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-bound-3.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-bound.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-bound.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-bound.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-bound.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-missing.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-missing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-missing.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-missing.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-multiple.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-multiple.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-multiple.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-multiple.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-once.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-once.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exec-once.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exec-once.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/exit.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/exit.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/halt.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/halt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/halt.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/halt.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/lib/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/lib/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/lib/user/.dummy" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/lib/user/.dummy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/lib/user/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/lib/user/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/multi-child-fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/multi-child-fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/multi-child-fd.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/multi-child-fd.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/multi-recurse.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/multi-recurse.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/multi-recurse.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/multi-recurse.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/no-vm/Make.tests" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/no-vm/Make.tests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/no-vm/Rubric" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/no-vm/Rubric" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/no-vm/multi-oom.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/no-vm/multi-oom.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/no-vm/multi-oom.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/no-vm/multi-oom.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/null.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/null.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-bad-ptr.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-bad-ptr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-bad-ptr.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-bad-ptr.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-boundary.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-boundary.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-boundary.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-boundary.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-empty.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-empty.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-empty.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-empty.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-missing.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-missing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-missing.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-missing.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-normal.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-normal.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-normal.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-normal.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-null.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-null.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-null.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-null.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-twice.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-twice.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/open-twice.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/open-twice.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-bad-fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-bad-fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-bad-fd.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-bad-fd.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-bad-ptr.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-bad-ptr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-bad-ptr.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-bad-ptr.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-boundary.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-boundary.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-boundary.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-boundary.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-normal.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-normal.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-normal.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-normal.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-stdout.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-stdout.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-stdout.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-stdout.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-zero.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-zero.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/read-zero.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/read-zero.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/rox-child.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/rox-child.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/rox-child.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/rox-child.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/rox-child.inc" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/rox-child.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/rox-multichild.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/rox-multichild.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/rox-multichild.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/rox-multichild.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/rox-simple.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/rox-simple.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/rox-simple.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/rox-simple.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sample.inc" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sample.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sample.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sc-bad-arg.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sc-bad-arg.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sc-bad-arg.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sc-bad-arg.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sc-bad-sp.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sc-bad-sp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sc-bad-sp.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sc-bad-sp.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sc-boundary-2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sc-boundary-2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sc-boundary-2.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sc-boundary-2.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sc-boundary-3.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sc-boundary-3.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sc-boundary-3.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sc-boundary-3.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sc-boundary.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sc-boundary.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/sc-boundary.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/sc-boundary.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/wait-bad-pid.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/wait-bad-pid.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/wait-bad-pid.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/wait-bad-pid.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/wait-killed.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/wait-killed.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/wait-killed.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/wait-killed.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/wait-simple.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/wait-simple.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/wait-simple.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/wait-simple.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/wait-twice.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/wait-twice.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/wait-twice.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/wait-twice.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-bad-fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-bad-fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-bad-fd.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-bad-fd.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-bad-ptr.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-bad-ptr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-bad-ptr.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-bad-ptr.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-boundary.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-boundary.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-boundary.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-boundary.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-normal.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-normal.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-normal.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-normal.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-stdin.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-stdin.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-stdin.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-stdin.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-zero.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-zero.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/userprog/write-zero.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/userprog/write-zero.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/Grading" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/Grading" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/Make.tests" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/Make.tests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/Rubric.functionality" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/Rubric.functionality" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/Rubric.robustness" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/Rubric.robustness" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/child-inherit.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/child-inherit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/child-linear.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/child-linear.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/child-mm-wrt.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/child-mm-wrt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/child-qsort-mm.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/child-qsort-mm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/child-qsort.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/child-qsort.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/child-sort.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/child-sort.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-bad-fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-bad-fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-bad-fd.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-bad-fd.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-clean.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-clean.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-clean.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-clean.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-close.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-close.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-close.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-close.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-exit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-exit.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-exit.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-inherit.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-inherit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-inherit.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-inherit.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-misalign.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-misalign.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-misalign.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-misalign.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-null.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-null.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-null.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-null.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-over-code.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-over-code.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-over-code.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-over-code.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-over-data.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-over-data.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-over-data.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-over-data.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-over-stk.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-over-stk.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-over-stk.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-over-stk.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-overlap.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-overlap.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-overlap.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-overlap.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-read.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-read.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-read.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-read.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-remove.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-remove.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-remove.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-remove.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-shuffle.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-shuffle.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-shuffle.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-shuffle.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-twice.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-twice.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-twice.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-twice.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-unmap.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-unmap.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-unmap.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-unmap.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-write.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-write.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-write.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-write.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-zero.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-zero.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/mmap-zero.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/mmap-zero.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-linear.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-linear.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-linear.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-linear.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-merge-mm.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-merge-mm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-merge-mm.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-merge-mm.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-merge-par.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-merge-par.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-merge-par.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-merge-par.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-merge-seq.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-merge-seq.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-merge-seq.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-merge-seq.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-merge-stk.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-merge-stk.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-merge-stk.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-merge-stk.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-parallel.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-parallel.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-parallel.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-parallel.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-shuffle.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-shuffle.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/page-shuffle.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/page-shuffle.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/parallel-merge.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/parallel-merge.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/parallel-merge.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/parallel-merge.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/process_death.pm" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/process_death.pm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-bad-addr.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-bad-addr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-bad-addr.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-bad-addr.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-bad-read.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-bad-read.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-bad-read.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-bad-read.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-big-stk-obj.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-big-stk-obj.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-big-stk-obj.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-big-stk-obj.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-grow-bad.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-grow-bad.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-grow-bad.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-grow-bad.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-grow-pusha.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-grow-pusha.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-grow-pusha.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-grow-pusha.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-grow-stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-grow-stack.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-grow-stack.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-grow-stack.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-grow-stk-sc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-grow-stk-sc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-grow-stk-sc.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-grow-stk-sc.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-write-code-2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-write-code-2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-write-code.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-write-code.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-write-code.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-write-code.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/pt-write-code2.ck" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/pt-write-code2.ck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/qsort.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/qsort.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/qsort.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/qsort.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/sample.inc" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/sample.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/vm/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/vm/sample.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/Make.vars" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/Make.vars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/flags.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/flags.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/init.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/init.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/init.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/interrupt.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/interrupt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/interrupt.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/interrupt.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/intr-stubs.S" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/intr-stubs.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/intr-stubs.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/intr-stubs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/io.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/io.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/kernel.lds.S" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/kernel.lds.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/loader.S" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/loader.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/loader.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/loader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/malloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/malloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/malloc.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/malloc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/palloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/palloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/palloc.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/palloc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/pte.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/pte.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/start.S" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/start.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/switch.S" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/switch.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/switch.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/switch.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/synch.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/synch.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/synch.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/synch.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/thread.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/thread.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/thread.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/thread.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/vaddr.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/vaddr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/Make.vars" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/Make.vars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/exception.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/exception.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/exception.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/exception.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/gdt.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/gdt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/gdt.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/gdt.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/pagedir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/pagedir.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/pagedir.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/pagedir.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/process.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/process.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/process.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/process.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/syscall.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/syscall.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/syscall.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/syscall.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/tss.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/tss.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userprog/tss.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/userprog/tss.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Pintos.pm" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Pintos.pm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/backtrace" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/backtrace" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/pintos" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/pintos" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/pintos-gdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/pintos-gdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/pintos-mkdisk" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/pintos-mkdisk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/pintos-set-cmdline" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/pintos-set-cmdline" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/setitimer-helper.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/setitimer-helper.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/setitimer-helper.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/squish-pty.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/squish-pty.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/squish-unix.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/squish-unix.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/squish-unix.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/Make.vars" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/Make.vars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tests/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Makefile" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Armaritto&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="user-prog-dockerized" />
+                    <option name="lastUsedInstant" value="1715542595" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="threads-dockerized" />
+                    <option name="lastUsedInstant" value="1715542322" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Armaritto/PintOS.git&quot;,
+    &quot;accountId&quot;: &quot;2f461ced-6f24-4080-99f9-af10a0ac79ff&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2gFMOwem3xcSmdftjB90nejrCpl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "#9 on Merging user-prog-dockerized",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/rafy/CLionProjects/testsForPintos",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pintosProject" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="pintosProject" TARGET_NAME="pintosProject" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="pintosProject" RUN_TARGET_NAME="pintosProject">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="10e37a65-b456-4875-8adf-48716638719d" name="Changes" comment="" />
+      <created>1714056096718</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714056096718</updated>
+      <workItem from="1714056098250" duration="620000" />
+      <workItem from="1714378883114" duration="32699000" />
+      <workItem from="1714491878456" duration="2523000" />
+      <workItem from="1715492450986" duration="3844000" />
+      <workItem from="1715596464484" duration="29000" />
+      <workItem from="1715597785618" duration="820000" />
+      <workItem from="1715610668474" duration="575000" />
+      <workItem from="1715611277473" duration="17962000" />
+      <workItem from="1715873839653" duration="661000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
